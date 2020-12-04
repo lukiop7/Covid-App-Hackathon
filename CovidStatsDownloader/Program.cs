@@ -9,34 +9,40 @@ using ScrapySharp.Network;
 using CsvHelper.Configuration.Attributes;
 using CsvHelper;
 using System.Linq;
+using System.Globalization;
 
 namespace CovidStatsDownloader
 {
     public static class Program
     {
-        public static async System.Threading.Tasks.Task<List<List<PolandStats>>> GetPolandStatsAsync()
+
+        public static async System.Threading.Tasks.Task<List<PolandStats>> GetPolandStatsAsync()
         {
             ScrapingBrowser browser = new ScrapingBrowser();
             var page = await browser.NavigateToPageAsync(new Uri(@"https://www.gov.pl/web/koronawirus/pliki-archiwalne-powiaty?fbclid=IwAR03yH7iHK_dpdwbT62ftEcH1uIJtwbjjoMJiq7hljPyVuqvskawvu_tRMw"));
             var list = page.Html.CssSelect("a");
             List<string> fileUrl = new List<string>();
+            List<PolandStats> statsAllFiles = new List<PolandStats>();
             foreach (var link in list)
             {
                 if (link.OuterHtml.Contains("file-download"))
                 {
                     string url = "https://www.gov.pl" + link.Attributes["href"].Value;
+                    string date = link.Attributes["aria-label"].Value.Substring(14, 8);
+                    date = date.Replace('_', '/').Insert(6,"20");
+                    statsAllFiles.Add(new PolandStats(date));
                     fileUrl.Add(url);
                 }
             }
-            List<List<PolandStats>> statsAllFiles = new List<List<PolandStats>>();
-            foreach (var url in fileUrl)
+
+            for(int i =0; i < fileUrl.Count; i++)
             {
-                statsAllFiles.Add(await GetCSVAsync(url));
+                statsAllFiles.ElementAt(i).FileStatsList=await GetCSVAsync(fileUrl.ElementAt(i));
             }
             return statsAllFiles;
         }
 
-        public static async System.Threading.Tasks.Task<List<PolandStats>> GetCSVAsync(string url)
+        public static async System.Threading.Tasks.Task<List<FileStats>> GetCSVAsync(string url)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
@@ -44,12 +50,12 @@ namespace CovidStatsDownloader
 
             StreamReader sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding(1250));
 
-            List<PolandStats> records;
+            List<FileStats> records;
 
             using (CsvReader csv = new CsvReader(sr,System.Globalization.CultureInfo.CurrentCulture))
             {
                 csv.Configuration.Delimiter = ";";
-                records = csv.GetRecords<PolandStats>().ToList();
+                records = csv.GetRecords<FileStats>().ToList();
             }
             sr.Close();
 
@@ -57,7 +63,7 @@ namespace CovidStatsDownloader
         }
 
     }
-    public class PolandStats
+    public class FileStats
     {
         [Index(0)]
         public string Province { get; set; }
@@ -76,4 +82,17 @@ namespace CovidStatsDownloader
         [Index(7)]
         public string TerritoryCode { get; set; }
     }
+
+    public class PolandStats
+    {
+        public List<FileStats> FileStatsList { get; set; }
+        public DateTime FileDate { get; set; }
+
+        public PolandStats(string date)
+        {
+            FileDate = DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.CurrentCulture);
+            FileStatsList = new List<FileStats>();
+        }
+    }
+
 }
