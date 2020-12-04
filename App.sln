@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PunktPobran", "src\PunktPob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidApp", "src\CovidApp\CovidApp.csproj", "{50D1058D-4000-49FA-A25F-AA39DF38688A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Szpitale", "Szpitale\Szpitale.csproj", "{F6F74D5D-DDDF-4132-BD7A-BDC30F206261}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidStatsDownloader", "CovidStatsDownloader\CovidStatsDownloader.csproj", "{E1D377A7-DD32-48EC-842E-93140801CB75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{50D1058D-4000-49FA-A25F-AA39DF38688A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D1058D-4000-49FA-A25F-AA39DF38688A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50D1058D-4000-49FA-A25F-AA39DF38688A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F74D5D-DDDF-4132-BD7A-BDC30F206261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F74D5D-DDDF-4132-BD7A-BDC30F206261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F74D5D-DDDF-4132-BD7A-BDC30F206261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F74D5D-DDDF-4132-BD7A-BDC30F206261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1D377A7-DD32-48EC-842E-93140801CB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1D377A7-DD32-48EC-842E-93140801CB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1D377A7-DD32-48EC-842E-93140801CB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1D377A7-DD32-48EC-842E-93140801CB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
