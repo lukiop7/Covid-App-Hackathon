@@ -1,0 +1,40 @@
+﻿@page "/statistics"
+
+<Chart Config="@config"></Chart>
+
+@code {
+    private PieConfig config;
+
+    protected override async void OnInitialized()
+    {
+        config = new PieConfig(true)
+        {
+            Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Ilość testów wdg. województw"
+                },
+            },
+        };
+
+        var result = await new TestsScraper.TestsScrapper().GetPerformedTestsWeekly();
+        var firstWeek = result.OrderBy(o => o.Key).First();
+
+
+        config.Data.Labels.Clear();
+        foreach (string woj in firstWeek.Value.Keys)
+        {
+            config.Data.Labels.Add(woj);
+        }
+
+        config.Data.Datasets.Add(new PieDataset<int>(firstWeek.Value.Values.ToArray())
+        {
+            BackgroundColor = new[] { ColorUtil.ColorHexString(255, 99, 132) }
+        });
+
+        this.StateHasChanged();
+    }
+}

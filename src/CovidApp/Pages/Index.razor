@@ -5,3 +5,54 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<Chart Config="@config"></Chart>
+
+
+<button class="btn btn-primary" @onclick="ChangeValues">Click me</button>
+
+@code {
+    private PieConfig config;
+     Random random = new Random();
+
+    PieDataset<double> dataset = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = new[]
+            {
+                ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
+                ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
+                ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
+                ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
+                ColorUtil.ColorHexString(54, 75, 235), // Slice 4 aka "Blue"
+                ColorUtil.ColorHexString(235, 205, 235), // Slice 4 aka "Blue"
+                ColorUtil.ColorHexString(54, 86, 235), // Slice 4 aka "Blue"
+            }
+    };
+
+    protected override async void OnInitialized()
+    {
+        config = new PieConfig(true)
+        {
+            Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "ChartJs.Blazor Pie Chart"
+                },
+            },
+        };
+
+        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        {
+            config.Data.Labels.Add(color);
+        }
+        config.Data.Datasets.Add(dataset);
+    }
+
+    void ChangeValues()
+    {
+        dataset.Add(random.NextDouble() * 10);
+    }
+}
