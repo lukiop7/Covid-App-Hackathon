@@ -1,9 +1,10 @@
-﻿using AngleSharp;
-using AngleSharp.Dom;
+﻿using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
+
 using ScrapySharp.Extensions;
 using ScrapySharp.Network;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,17 +23,17 @@ namespace Szpitale
 
         public City()
         {
-            hospitalAddres = new List<string>();
-            hospitalName = new List<string>();
+            this.hospitalAddres = new List<string>();
+            this.hospitalName = new List<string>();
             //hospitals = new Dictionary<string, string>();
         }
     }
 
-    class Program
+    internal class Program
     {
-        static private string siteUrl = @"https://www.gov.pl/web/koronawirus/lista-szpitali?fbclid=IwAR13FDoDSxj8T2zrejrzNN4hC5rbEUZ9ynG9BBla2c_qmt3d4-V3FF5ilwk";
+        private static readonly string siteUrl = @"https://www.gov.pl/web/koronawirus/lista-szpitali?fbclid=IwAR13FDoDSxj8T2zrejrzNN4hC5rbEUZ9ynG9BBla2c_qmt3d4-V3FF5ilwk";
 
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             await ScrapMethod2();
             Console.ReadKey();
@@ -41,8 +42,8 @@ namespace Szpitale
         public static async Task ScrapeWebsite()
         {
             //Console.WriteLine("yo");
-            CancellationTokenSource cancellationToken = new CancellationTokenSource();
-            HttpClient httpClient = new HttpClient();
+            var cancellationToken = new CancellationTokenSource();
+            var httpClient = new HttpClient();
             HttpResponseMessage request = await httpClient.GetAsync(siteUrl);
             cancellationToken.Token.ThrowIfCancellationRequested();
 
@@ -51,11 +52,11 @@ namespace Szpitale
 
             //Console.WriteLine("yo");
 
-            HtmlParser parser = new HtmlParser();
+            var parser = new HtmlParser();
             IHtmlDocument document = parser.ParseDocument(response);
 
             Console.WriteLine(response);
-            Console.WriteLine("yo"+document.Url+"  "+document.NodeName);
+            Console.WriteLine("yo" + document.Url + "  " + document.NodeName);
 
             //GetScrapeResults(document);
         }
@@ -68,11 +69,11 @@ namespace Szpitale
             //    articleLink = document.All.Where(x => x.ClassName.Contains("cities"));
             //}
 
-            var pricesListItemsLinq = document.All
+            IEnumerable<IElement> pricesListItemsLinq = document.All
             .Where(m => m.LocalName == "span" && m.ClassList.Equals("c-price"));
             Console.WriteLine(pricesListItemsLinq.Count());
 
-            var ultag = document.QuerySelector("ul.law-court__cities");
+            IElement ultag = document.QuerySelector("ul.law-court__cities");
             //var ultag_html = ultag.ToHtml();
 
             Console.WriteLine(articleLink.FirstOrDefault() + " 1");
@@ -83,15 +84,15 @@ namespace Szpitale
 
         public static async Task<string> ScrapMethod()
         {
-            ScrapingBrowser browser = new ScrapingBrowser();
+            var browser = new ScrapingBrowser();
 
-            var page = await browser.NavigateToPageAsync(new Uri(siteUrl));
+            WebPage page = await browser.NavigateToPageAsync(new Uri(siteUrl));
 
-            var list = page.Html.CssSelect("div");
+            IEnumerable<HtmlAgilityPack.HtmlNode> list = page.Html.CssSelect("div");
 
             //Console.WriteLine(list.Count()+" m:");
 
-            var list2 = list.Where(s => s.OuterHtml.Contains("cities") && s.InnerText.Contains("Województwo"));
+            IEnumerable<HtmlAgilityPack.HtmlNode> list2 = list.Where(s => s.OuterHtml.Contains("cities") && s.InnerText.Contains("Województwo"));
             //foreach (var l in list2) Console.WriteLine(l.PreviousSibling.InnerText);
 
             //Console.WriteLine(list2.Last().InnerText);
@@ -102,15 +103,15 @@ namespace Szpitale
 
         public static async Task<List<City>> ScrapMethod2()
         {
-            ScrapingBrowser browser = new ScrapingBrowser();
+            var browser = new ScrapingBrowser();
 
-            var page = await browser.NavigateToPageAsync(new Uri(siteUrl));
+            WebPage page = await browser.NavigateToPageAsync(new Uri(siteUrl));
 
-            var list = page.Html.CssSelect("li");
+            IEnumerable<HtmlAgilityPack.HtmlNode> list = page.Html.CssSelect("li");
 
-            Console.WriteLine(list.Count()+" m:");
+            Console.WriteLine(list.Count() + " m:");
 
-            var list2 = list.Where(s => s.InnerText.Contains("Województwo"));
+            IEnumerable<HtmlAgilityPack.HtmlNode> list2 = list.Where(s => s.InnerText.Contains("Województwo"));
             Console.WriteLine(list2.Count() + " m:");
             //foreach (var l in list2) Console.WriteLine(l.InnerText);
 
@@ -120,20 +121,20 @@ namespace Szpitale
             //Console.WriteLine(list2.First().InnerText.Split('\n').First());
             //var tmp = list2.First().InnerText.Split('\n');
             //foreach (var t in tmp) Console.WriteLine(t+"  yoyo  \n\n\n");
-            List<City> cities = new List<City>();
+            var cities = new List<City>();
 
-            foreach (var l in list2)
+            foreach (HtmlAgilityPack.HtmlNode l in list2)
             {
                 string text = l + "";
-                City tmp = new City();
+                var tmp = new City();
 
-                
-                var s = l.InnerText.Split('\n');
+
+                string[] s = l.InnerText.Split('\n');
                 tmp.name = s[1];
 
-                for(int i = 3; i < s.Count(); i++)
+                for (int i = 3; i < s.Count(); i++)
                 {
-                    if(s[i].Length > 2)
+                    if (s[i].Length > 2)
                     {
                         string scity = s[i].Remove(s[i].IndexOf(","));
                         string saddress = s[i].Replace(scity + ",", "");
