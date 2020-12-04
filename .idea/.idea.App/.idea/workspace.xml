@@ -7,6 +7,7 @@
     <projectFile>src/CovidApp/CovidApp.csproj</projectFile>
     <projectFile>Szpitale/Szpitale.csproj</projectFile>
     <projectFile>CovidStatsDownloader/CovidStatsDownloader.csproj</projectFile>
+    <projectFile>StatsWorld/StatsWorld.csproj</projectFile>
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -27,9 +28,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58b8fef1-c0a9-4e00-a23a-6fb0f00e3f26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.App/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="58b8fef1-c0a9-4e00-a23a-6fb0f00e3f26" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,12 +37,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/StatsWorld/Program.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PunktPobran/Model.cs" />
         <option value="$PROJECT_DIR$/PunktPobran/Program.cs" />
         <option value="$PROJECT_DIR$/src/PunktPobran/PunktPobranScrapper.cs" />
+        <option value="$PROJECT_DIR$/StatsWorld/Program.cs" />
       </list>
     </option>
   </component>
@@ -363,10 +366,10 @@
     </state>
     <state width="1398" height="331" key="GridCell.Tab.4.right/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220485" />
     <state width="1398" height="170" key="GridCell.Tab.4.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607111558682" />
-    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size" timestamp="1607103054657">
+    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size" timestamp="1607114772198">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607103054657" />
+    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607114772198" />
     <state x="221" y="89" width="1187" height="722" key="SettingsEditor" timestamp="1607105352317">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
