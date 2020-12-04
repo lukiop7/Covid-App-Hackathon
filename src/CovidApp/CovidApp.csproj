@@ -9,6 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CovidStatsDownloader\CovidStatsDownloader.csproj" />
+    <ProjectReference Include="..\..\QandA\QandA.csproj" />
     <ProjectReference Include="..\..\Szpitale\Szpitale.csproj" />
     <ProjectReference Include="..\PunktPobran\PunktPobran.csproj" />
     <ProjectReference Include="..\TestsScraper\TestsScraper.csproj" />
