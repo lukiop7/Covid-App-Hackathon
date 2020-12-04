@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="Punkty_pobran">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Punkty_pobran" />
+              <option name="relativePathToSchema" value="https://pacjent.gov.pl/sites/default/files/2020-12/Punkty_pobran_0412%20%281%29.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
