@@ -25,7 +25,7 @@ namespace PunktPobran
             var resp = await response.Content.ReadAsStringAsync();
 
             List<Model> items = JsonConvert.DeserializeObject<List<Model>>(resp);
-            items.ForEach(Console.WriteLine);
+            
         }
     }
 }
