@@ -1,8 +1,9 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<blockquote class="twitter-tweet">
+    <a href="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etfw" />
+</blockquote>
 
-Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
@@ -13,7 +14,7 @@ Welcome to your new app.
 
 @code {
     private PieConfig config;
-     Random random = new Random();
+    Random random = new Random();
 
     PieDataset<double> dataset = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
     {
