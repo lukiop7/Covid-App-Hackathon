@@ -63,6 +63,7 @@
           <e p="Obostrzenia.razor" t="Include" />
           <e p="QaA.razor" t="Include" />
           <e p="Statistics" t="Include">
+            <e p="PlStatistics.razor" t="Include" />
             <e p="Statistics.razor" t="Include" />
             <e p="TestsStatistics.razor" t="Include" />
           </e>
