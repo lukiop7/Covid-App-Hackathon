@@ -1,14 +1,53 @@
 ﻿@page "/worldstatistics"
 @using ChartJs.Blazor.BarChart
 
-<Chart Config="@config"></Chart>
+
+            <div class="index-charts-top right">
+
+                <Chart Config="@TestyPolska"></Chart>
+
+            </div>
+
+
+
+<div class="clearfix"></div>
+
+
 
 @code {
-    private BarConfig config;
+    //List<CovidStatsDownloader.PolandStats> polandStats = new List<CovidStatsDownloader.PolandStats>();
+    //List<TestsScraper.Tests> tests = new List<TestsScraper.Tests>();
+    List<List<StatsWorld.StatsFromCountryModel>> result = null;
+    List<int> sumaZakazen = new List<int>() { };
+
+    private PieConfig config, TestsPerformedToday, TestsPerformedAll, chart3;
+    private BarConfig TestyPolska;
+    Random random = new Random();
+
+
+
+    PieDataset<double> dataset = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = Colors.RandomColors(200, 60)
+    };
+    PieDataset<double> dataset2 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = Colors.RandomColors(200, 60)
+    };
+    PieDataset<double> dataset3 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = Colors.RandomColors(200, 60)
+    };
+
+    private async Task FetchData()
+    {
+        result = await new StatsWorld.GetStatsScrapper().GetStatics();
+    }
 
     protected override async void OnInitialized()
     {
-        config = new BarConfig(true)
+
+        TestyPolska = new BarConfig
         {
             Options = new BarOptions
             {
@@ -21,63 +60,177 @@
                 Title = new OptionsTitle
                 {
                     Display = true,
-                    Text = "Ilość zgonów na świecie"
-                },
-                Scales = new BarScales
-                {
-                    XAxes = new List<CartesianAxis>{ },
-                    YAxes = new List<CartesianAxis>
-                    {
-                        new ChartJs.Blazor.Common.Axes.LinearCartesianAxis
-                        {
-                            Ticks = new LinearCartesianTicks()
-                            {
-                                BeginAtZero = true,
-                                SuggestedMax = 20000,
-                            }
-                        }
-                    },
-                    
+                    Text = "Testy przeprowadzane w poslce"
                 }
             }
         };
 
-        var result = await new StatsWorld.GetStatsScrapper().GetStatics();
-        List<int> sumaZakazen = new List<int>();
-       
+
+        await FetchData();
+
+
+        //tests = tests.OrderByDescending(o => o.date).ToList();
+        SetTestsPerformed();
+
+
+        await Task.Delay(100);
+        this.StateHasChanged();
+    }
+
+    void ChangeValues()
+    {
+        dataset.Add(random.NextDouble() * 10);
+    }
+
+
+    private void SetTestsPerformed()
+    {
+
         int suma = 0;
-       
 
-        for (int i = 0; i < result.Count; i++)
+        foreach (var sw in result)
         {
-            for (int j = 0; j < result[i].Count; j++)
-            {
-                suma += result[j][i].Deaths;
-            }
-            
-            sumaZakazen.Add(suma);
+            suma = 0;
 
+            for (int j = 0; j < sw.Count; j++)
+            {
+                suma += sw[j].Deaths;
+            }
+
+            sumaZakazen.Add(suma);
         }
+
+
+
+
+
+        //var colorlist = Colors.GradientColors(tests.Count() - 1, 220, 100, 100);
 
         int[] ddd = new int[sumaZakazen.Count()];
         for (int i = 0; i < sumaZakazen.Count(); i++)
         {
             ddd[i] = sumaZakazen[i];
         }
-        var colorlist = Colors.GradientColors(ddd.Count(), 220, 100, 100);
-        for (int i = 0; i < ddd.Length; i++)
+
+        for (int i = 0; i < ddd.Count(); i++)
         {
 
             IDataset<int> dat = new BarDataset<int>(new[] { ddd[ddd.Count() - i - 1] })
             {
-                Label = "" + result[ddd.Count() - i - 1][ddd.Count() - i - 1].Date,
-                BackgroundColor = colorlist[ddd.Count() - i - 1],
+                //Label = "" + tests[ddd.Count() - i - 1].date,
+                //BackgroundColor = colorlist[ddd.Count() - i - 1],
                 BorderWidth = 1,
+                //XAxisId = "" + tests[i].date
             };
-            config.Data.Datasets.Add(dat);
+            TestyPolska.Data.Datasets.Add(dat);
+            //BarDataset<int> TestyPolskaData = new BarDataset<int>(new[] { ddd[ddd.Count() - i - 1] });
 
         }
 
-        this.StateHasChanged();
     }
 }
+
+
+@*@using ChartJs.Blazor.BarChart
+
+    <Chart Config="@config"></Chart>
+
+    @code {
+        private BarConfig config;
+
+        protected override async void OnInitialized()
+        {
+            config = new BarConfig(true)
+            {
+                Options = new BarOptions
+                {
+                    Responsive = true,
+                    Legend = new Legend
+                    {
+                        Position = Position.Bottom,
+                        Display = false
+                    },
+                    Title = new OptionsTitle
+                    {
+                        Display = true,
+                        Text = "Ilość zgonów na świecie"
+                    },
+                    Scales = new BarScales
+                    {
+                        XAxes = new List<CartesianAxis>{
+
+                            new ChartJs.Blazor.Common.Axes.LinearCartesianAxis
+                            {
+                                Ticks = new LinearCartesianTicks()
+                                {
+                                    BeginAtZero = true,
+                                    SuggestedMax = 20000,
+                                }
+                            }
+                        },
+                        YAxes = new List<CartesianAxis>
+                        {
+                            new ChartJs.Blazor.Common.Axes.LinearCartesianAxis
+                            {
+                                Ticks = new LinearCartesianTicks()
+                                {
+                                    BeginAtZero = true,
+                                    SuggestedMax = 1000,
+                                }
+                            }
+                        },
+
+                    }
+                }
+            };
+
+            var result = await new StatsWorld.GetStatsScrapper().GetStatics();
+            List<int> sumaZakazen = new List<int>() { 1, 3, 456, 4 , 345, 34, 34};
+
+            int suma = 0;
+
+            //foreach(var sw in result)
+            //{
+            //    suma = 0;
+
+            //    for (int j = 0; j < sw.Count; j++)
+            //    {
+            //        suma += sw[j].Deaths;
+            //    }
+
+            //    sumaZakazen.Add(suma);
+            //}
+
+            //for (int i = 0; i < result.Count; i++)
+            //{
+            //    for (int j = 0; j < result[i].Count; j++)
+            //    {
+            //        suma += result[j][i].Deaths;
+            //    }
+
+            //    sumaZakazen.Add(suma);
+
+            //}
+
+            //int[] ddd = new int[sumaZakazen.Count()];
+            //for (int i = 0; i < sumaZakazen.Count(); i++)
+            //{
+            //    ddd[i] = sumaZakazen[i];
+            ////}
+            //var colorlist = Colors.GradientColors(ddd.Count(), 220, 100, 100);
+            for (int i = 0; i < sumaZakazen.Count; i++)
+            {
+
+                IDataset<int> dat = new BarDataset<int>( sumaZakazen[)
+                {
+                    //Label = "" + result[ddd.Count() - i - 1][ddd.Count() - i - 1].Date,
+                    //BackgroundColor = colorlist[ddd.Count() - i - 1],
+                    BorderWidth = 1,
+                };
+                config.Data.Datasets.Add(dat);
+
+            }
+
+            this.StateHasChanged();
+        }
+    }*@
