@@ -44,15 +44,7 @@
                     <PageLink Label="Centrum e-Zdrowia" Page="/Twitter/CEZ" />
                 </PageLink>
 
-<<<<<<< HEAD
-                <PageLink Icon="oi oi-briefcase" Label="" Page="/travel" />
-
-
                 <PageLink Icon="oi oi-graph" Label="Źródła" Page="/zrodlo" />
-
-=======
-                <PageLink Icon="oi oi-graph" Label="Źródła" Page="/zrodlo" />
->>>>>>> origin/master
             </ul>
         </nav>
     </div>
@@ -60,6 +52,7 @@
 
 
 @code {
+
     [Parameter]
     public bool NarrowCollapsed { get; set; }
 
@@ -118,4 +111,5 @@
     void ToggleNavMenuNarrow() => ToggleNarrow?.Invoke(this, null);
 
     void ToggleNavMenuWide() => ToggleWide?.Invoke(this, null);
+
 }
