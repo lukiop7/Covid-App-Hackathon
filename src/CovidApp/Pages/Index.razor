@@ -5,17 +5,48 @@
 @page "/"
 
 <div class="alert alert-warning" role="alert">
-    <h3 class="alert-heading">Statystyki Covid w Polsce (@date.Date)</h3>
+    <p class="Warining-container"><b>Statystyki Covid w Polsce</b> (@datestring)</p>
 
-    <div style="width:100%; display: inline-block; text-align: center;">
-        <p> Zakażonych: @total</p>
-        <p> Na 10 tysięcy: @cases10k</p>
-        <p> Śmierci: @deaths</p>
+    @*<div style="width:100%; display: grid; text-align: center;">
+        <div style="width:33%;"><p> Zakażonych: @total</p></div>
+        <div style="width:33%"><p> Na 10 tysięcy: @cases10k</p></div>
+        <div style="width:33%;"><p> Śmierci: @deaths</p></div>
+    </div>*@
+
+    <div class="Warining-container" style="text-align: center; width: 100%; box-sizing:border-box; float: left;">
+        <div class="row">
+            <div class="col-sm">
+                <p><b> Zakażonych: <p>@total</p></b>  @*<i class="arrow-up"></i>*@ </p>
+            </div>
+            <div class="col-sm">
+                <p> <b>Na 10 tysięcy: <p>@cases10k</p></b>  @*<i class="arrow-up"></i>*@  </p>
+            </div>
+            <div class="col-sm">
+                @*<i class="arrow-up" style="color:red"></i>*@
+                <p> <b> Śmierci: <p>@deaths </p></b> </p>
+            </div>
+        </div>
     </div>
 
     <hr>
     <p class="mb-0">Informacje dostarczane przez ministerstwo zdrowia.</p>
 </div>
+
+
+<div style="text-align: center; width: 100%; box-sizing:border-box;">
+    <div style="display:inline-flex">
+        <img all="" src="logo1.png" style="height:150px; margin-top: 50px;" /> <b style="margin-top:110px;">Poland Covid Center</b>
+    </div>
+    <div>
+        <p style="text-align:center;">
+            W dzisiejszych, trudnych czasach niezwykle ważny jest łatwy i szybki dostęp do informacji. Covid Poland Center powstało, aby zgromadzić w jednym miejscu wszystkie niezbęde dla ciebie wiadomości. 
+            W odpowiednich zakładkach dostępne są wszelakie dane statystyczne, pokazujące przebieg pandemii w Polsce i na świecie. Wszystkie z gromadzonych tutaj danych są pobierane z rządowej strony www.gov.pl,
+            lub innych zaufanych i rzetelnych źródeł zagranicznych. W trosce o twoje zdrowie, zamieszczone zostały tutaj również informację o tym, jak prawidłowo rozpoznać objawy covid-19, oraz aktualną listę szpitali 
+            zakaźnych, czy punktów pobrań. 
+        </p>
+    </div>
+</div>
+
 
 <div class="index-maindiv">
     <div class="index-charts">
@@ -35,7 +66,8 @@
     List<CovidStatsDownloader.PolandStats> polandStats = new List<CovidStatsDownloader.PolandStats>();
 
     DateTime date;
-    string deaths, total, cases10k;
+    string deaths, total, cases10k, datestring;
+    int de = 0, to = 0, ca = 0;
     private BarConfig ZakazeniaPolska;
 
     Random random = new Random();
@@ -46,11 +78,50 @@
         polandStats = await CovidStatsDownloader.Program.GetPolandStatsAsync();
 
         date = polandStats.Last().FileDate;
+        datestring = (date.Date+"").Split(" ").First();
 
-        deaths = (polandStats.Last().FileStatsList.First().Deaths == null) ? "brak danych" : "" + polandStats.Last().FileStatsList.First().Deaths;
-        total = (polandStats.Last().FileStatsList.First().TotalCases == null) ? "brak danych" : "" + polandStats.Last().FileStatsList.First().TotalCases;
-        cases10k = (polandStats.Last().FileStatsList.First().Cases10k == null) ? "brak danych" : "" + polandStats.Last().FileStatsList.First().Cases10k;
+        de = (polandStats.Last().FileStatsList.First().Deaths == null) ? -1 : (int)polandStats.Last().FileStatsList.First().Deaths;
+        to = (polandStats.Last().FileStatsList.First().TotalCases == null) ? -1 : (int) polandStats.Last().FileStatsList.First().TotalCases;
+        ca = (polandStats.Last().FileStatsList.First().Cases10k == null) ? -1 : (int) polandStats.Last().FileStatsList.First().Cases10k;
 
+        if (de > 9999)
+        {
+            deaths = " " + (de / 1000) + " tys.";
+        }
+        else
+        {
+            deaths = " " + de;
+        }
+        if (de < 0)
+        {
+            deaths = " brak danych";
+        }
+
+        if (to > 9999)
+        {
+            total = " " + (to / 1000) + " tys.";
+        }
+        else
+        {
+            total = " " + to;
+        }
+        if (to < 0)
+        {
+            total = " brak danych";
+        }
+
+        if (ca > 9999)
+        {
+            cases10k = " " + (ca / 1000) + " tys.";
+        }
+        else
+        {
+            cases10k = " " + ca;
+        }
+        if (ca < 0)
+        {
+            cases10k = " brak danych";
+        }
     }
 
 
@@ -128,7 +199,7 @@
 
         var colorlist = Colors.GradientColors(ddd.Count(), 220, 100, 100);
 
-        for (int i = 0; i < ddd.Count(); i++)
+        for (int i = 0; i < ddd.Length; i++)
         {
 
             IDataset<double> dat = new BarDataset<double>(new[] { ddd[ddd.Count() - i - 1] })

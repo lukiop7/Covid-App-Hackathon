@@ -9,7 +9,7 @@ namespace StatsWorld
     {
         static async Task Main(string[] args)
         {
-            await new GetStatsScrapper().GetStatics();
+            var result = await new GetStatsScrapper().GetStatics();
         }
     }
 }
