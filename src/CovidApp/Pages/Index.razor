@@ -1,8 +1,7 @@
 ﻿@page "/"
 
-<blockquote class="twitter-tweet">
-    <a href="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etfw" />
-</blockquote>
+<Tweet Url="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etf" />
+
 
 
 <SurveyPrompt Title="How is Blazor working for you?" />
@@ -50,7 +49,9 @@
         {
             config.Data.Labels.Add(color);
         }
+        await Task.Delay(100);
         config.Data.Datasets.Add(dataset);
+        this.StateHasChanged();
     }
 
     void ChangeValues()
