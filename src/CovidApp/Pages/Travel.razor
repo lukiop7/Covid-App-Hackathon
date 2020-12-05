@@ -14,16 +14,33 @@
 }
 else
 {
-    foreach (var region in information.Regions)
+    @foreach (var region in information.Regions)
     {
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@region.Key</h5>
-                <p class="card-text">
+        <button type="button" class="btn btn-dark" @onclick="( () => Click(region.Value))">
+            @if (region.Value.Visible)
+            {
+                <span class="oi oi-arrow-thick-top"></span>
+            }
+            else
+            {
+                <span class="oi oi-arrow-thick-bottom"></span>
+            }
+            @((MarkupString)region.Key)
+        </button>
+        if (region.Value.Visible)
+        {
+           <ul>
+               @foreach(var c in region.Value.Countries)
+               {
+               <li>
+                   @((MarkupString)@c.Value.Name):  @((MarkupString)@c.Value.v)
 
-                </p>
-            </div>
-        </div>
+               </li>
+               }
+           </ul>
+        }
+        <br />
+        <br />
     }
 }
 
@@ -35,5 +52,10 @@ else
     protected override async Task OnInitializedAsync()
     {
         information = await travelingScraper.GetTravelingInformation();
+    }
+
+    void Click(TravelingScraper.RegionInformation ri)
+    {
+        ri.Visible = !ri.Visible;
     }
 }

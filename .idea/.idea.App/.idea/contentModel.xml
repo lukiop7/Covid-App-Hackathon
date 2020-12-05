@@ -56,6 +56,7 @@
           <e p="Diagnostics.razor" t="Include" />
           <e p="Error.razor" t="Include" />
           <e p="FetchData.razor" t="Include" />
+          <e p="Hospitals.razor" t="Include" />
           <e p="Index.razor" t="Include" />
           <e p="Obostrzenia.razor" t="Include" />
           <e p="QaA.razor" t="Include" />
