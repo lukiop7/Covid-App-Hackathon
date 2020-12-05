@@ -10,15 +10,17 @@ using CsvHelper.Configuration.Attributes;
 using CsvHelper;
 using System.Linq;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace CovidStatsDownloader
 {
     public static class Program
     {
-        public static async System.Threading.Tasks.Task Main()
+        public static async Task Main(string[] args)
         {
-            var list = await GetPolandStatsAsync();
+            var result = await GetPolandStatsAsync();
         }
+
         public static async System.Threading.Tasks.Task<List<PolandStats>> GetPolandStatsAsync()
         {
             ScrapingBrowser browser = new ScrapingBrowser();

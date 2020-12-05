@@ -1,23 +1,126 @@
 ﻿@page "/diagnostics"
 
-@using CovidApp.Shared 
+@using CovidApp.Shared
 
 @if (loading)
 {
-   <Spinner />
-   <button class="btn btn-primary" @onclick="Click">Click me</button>
-} 
+    <Spinner />
+}
 else
 {
+    @switch (step)
+    {
+        case 0:
+            <button class="btn btn-secondary" @onclick="BeginDiagnostics">Rozpocznij test</button>
+            break;
+
+        case 1:
+            <h3> Zaznacz występujące objawy </h3>
+            <form>
+                <div class="form-row align-items-center">
+                    @foreach (var s in symptoms)
+                    {
+                        <div class="col-12">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="@s.Id" checked="@s.Selected" @onchange="((e) => this.OnCheckboxChange(e, s))">
+                                <label class="custom-control-label" for="@s.Id">@((MarkupString)s.Name)</label>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button class="btn btn-secondary" @onclick="EndDiagnostics" type="button">Gotowe</button>
+            </form>
+            break;
+
+        case 2:
+            <div>
+                Ilość objawów wskazujących COVID:
+                @(symptoms.Where(s => s.Selected && s.Real).Count())
+            </div>
+
+            <button class="btn btn-secondary" @onclick="BeginDiagnostics">Rozpocznij test ponownie</button>
+            break;
+    }
 
 }
 
-@code 
+<style>
+</style>
+
+@code
 {
     private bool loading = true;
 
-    void Click()
+    int step = 0;
+
+    private static List<Symptom> fakeSymptoms = new[]
     {
+        "wymioty",
+        "wodobrzusze",
+        "opadanie kącika ust",
+        "krew w stolcu",
+        "niedokrwistość",
+        "obrzęk kończyn dolnych",
+        "łysienie"
+    }
+       .Select(n => new Symptom() { Name = n, Real = false })
+       .ToList();
+
+
+    private List<Symptom> symptoms = new[]
+    {
+"gorączka",
+"suchy kaszel",
+"zmęczenie",
+"ból mięśni",
+"ból gardła",
+"biegunka",
+"zapalenie spojówek",
+"ból głowy",
+"utrata smaku lub węchu",
+"wysypka skórna lub przebarwienia palców u rąk i stóp",
+"trudności w oddychaniu lub duszności",
+"ból lub ucisk w klatce piersiowej",
+"utrata mowy lub zdolności ruchowych"
+    }
+        .Select(n => new Symptom() { Name = n })
+        .Concat(fakeSymptoms)
+        .OrderBy(b => b.Id)
+        .ToList();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
         loading = false;
+    }
+
+    private void BeginDiagnostics()
+    {
+        step = 1;
+        foreach (var s in symptoms)
+        {
+            s.Selected = false;
+        }
+    }
+
+    private void EndDiagnostics()
+    {
+        step = 2;
+    }
+
+    private void OnCheckboxChange(ChangeEventArgs e, Symptom s)
+    {
+        if (e.Value is bool b)
+        {
+            s.Selected = b;
+        }
+    }
+
+    class Symptom
+    {
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Name { get; set; }
+        public bool Real { get; set; } = true;
+        public bool Selected { get; set; } = false;
     }
 }
