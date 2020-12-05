@@ -1,0 +1,22 @@
+﻿<div class="tweet-container" id="@id">
+   
+</div>
+
+@code
+{
+    private Guid id = Guid.NewGuid();
+
+    [Parameter]
+    public string Url { get; set; }
+
+    [Inject]
+    public IJSRuntime JS { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            JS.InvokeVoidAsync("createTweet", id.ToString(), Url);
+        }
+    }
+}

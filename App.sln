@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Szpitale", "Szpitale\Szpita
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidStatsDownloader", "CovidStatsDownloader\CovidStatsDownloader.csproj", "{E1D377A7-DD32-48EC-842E-93140801CB75}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsScraper", "src\TestsScraper\TestsScraper.csproj", "{B38AB233-26E9-4E72-AEA3-48D003C7B4DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QandA", "QandA\QandA.csproj", "{EED1C13C-5D6C-455B-A0C7-7FFA67C8A481}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterApi", "TwitterApi\TwitterApi.csproj", "{AD56FF1F-9609-4586-B2B9-FF79CFD0810B}"
 EndProject
 Global
@@ -43,6 +47,14 @@ Global
 		{AD56FF1F-9609-4586-B2B9-FF79CFD0810B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD56FF1F-9609-4586-B2B9-FF79CFD0810B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD56FF1F-9609-4586-B2B9-FF79CFD0810B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B38AB233-26E9-4E72-AEA3-48D003C7B4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B38AB233-26E9-4E72-AEA3-48D003C7B4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B38AB233-26E9-4E72-AEA3-48D003C7B4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B38AB233-26E9-4E72-AEA3-48D003C7B4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED1C13C-5D6C-455B-A0C7-7FFA67C8A481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED1C13C-5D6C-455B-A0C7-7FFA67C8A481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED1C13C-5D6C-455B-A0C7-7FFA67C8A481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED1C13C-5D6C-455B-A0C7-7FFA67C8A481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
