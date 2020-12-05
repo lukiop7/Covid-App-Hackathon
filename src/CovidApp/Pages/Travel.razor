@@ -1,48 +1,57 @@
 ﻿@using ChartJs.Blazor.BarChart
 
 @page "/travel"
+<div class="card rounded">
+    <div class="card-header ">
+        <h3>Koronawirus - podróże za granicę</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            Lista państw z najwyższą liczbą przypadków COVID-19 w przeliczeniu na 100 tys. mieszkańców w ostatnich 14 dniach
+        </h5>
 
-<h3>Koronawirus - podróże za granicę</h3>
-
-<h4>
-    Lista państw z najwyższą liczbą przypadków COVID-19 w przeliczeniu na 100 tys. mieszkańców w ostatnich 14 dniach
-</h4>
-
-@if (information == null)
-{
-    <Spinner />
-}
-else
-{
-    @foreach (var region in information.Regions)
-    {
-        <button type="button" class="btn btn-dark" @onclick="( () => Click(region.Value))">
-            @if (region.Value.Visible)
-            {
-                <span class="oi oi-arrow-thick-top"></span>
-            }
-            else
-            {
-                <span class="oi oi-arrow-thick-bottom"></span>
-            }
-            @((MarkupString)region.Key)
-        </button>
-        if (region.Value.Visible)
+        @if (information == null)
         {
-           <ul>
-               @foreach(var c in region.Value.Countries)
-               {
-               <li>
-                   @((MarkupString)@c.Value.Name):  @((MarkupString)@c.Value.v)
-
-               </li>
-               }
-           </ul>
+            <Spinner />
         }
-        <br />
-        <br />
-    }
-}
+        else
+        {
+            @foreach (var region in information.Regions)
+            {
+                <button type="button" class="btn btn-dark" @onclick="( () => Click(region.Value))">
+                    @if (region.Value.Visible)
+                    {
+                        <span class="oi oi-arrow-thick-top"></span>
+                    }
+                    else
+                    {
+                        <span class="oi oi-arrow-thick-bottom"></span>
+                    }
+                    @((MarkupString)region.Key)
+                </button>
+                if (region.Value.Visible)
+                {
+                    <div class="card rounded">
+                        <div class="card-body">
+                            <ul>
+                                @foreach (var c in region.Value.Countries)
+                                {
+                                    <li>
+                                        @((MarkupString)@c.Value.Name):  @((MarkupString)@c.Value.v)
+
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+                <br />
+                <br />
+
+            }
+        }
+    </div>
+</div>
 
 @code {
     private readonly TravelingScraper.TravelingScraper travelingScraper = new TravelingScraper.TravelingScraper();
