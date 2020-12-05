@@ -18,6 +18,7 @@ namespace QandA
     public class Question
     {
         public string question, answer;
+        public bool visible = false;
     }
 
     public class Program
