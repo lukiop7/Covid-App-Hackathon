@@ -8,6 +8,9 @@
     <projectFile>Szpitale/Szpitale.csproj</projectFile>
     <projectFile>CovidStatsDownloader/CovidStatsDownloader.csproj</projectFile>
     <projectFile>StatsWorld/StatsWorld.csproj</projectFile>
+    <projectFile>src/TestsScraper/TestsScraper.csproj</projectFile>
+    <projectFile>QandA/QandA.csproj</projectFile>
+    <projectFile>TwitterApi/TwitterApi.csproj</projectFile>
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -29,10 +32,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58b8fef1-c0a9-4e00-a23a-6fb0f00e3f26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/StatsWorld/ModelCountries.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StatsWorld/StatsWorldScrapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.App/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.App/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.App/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QandA/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QandA/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CovidApp/Pages/QaA.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/CovidApp/Pages/QaA.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,18 +46,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/StatsWorld/ModelCountries.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/StatsWorld/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/StatsWorld/StatsWorldScrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18FD0280-F595-4534-A864-9C11E9235D85/88/655f113d/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/18FD0280-F595-4534-A864-9C11E9235D85/1D8/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PunktPobran/Program.cs" />
         <option value="$PROJECT_DIR$/PunktPobran/Model.cs" />
-        <option value="$PROJECT_DIR$/StatsWorld/Program.cs" />
-        <option value="$PROJECT_DIR$/StatsWorld/ModelCountries.cs" />
+        <option value="$PROJECT_DIR$/PunktPobran/Program.cs" />
+        <option value="$PROJECT_DIR$/src/PunktPobran/PunktPobranScrapper.cs" />
+        <option value="$PROJECT_DIR$/StatsWorld/ModelCountry.cs" />
         <option value="$PROJECT_DIR$/StatsWorld/StatsWorldScrapper.cs" />
+        <option value="$PROJECT_DIR$/StatsWorld/StatsFromCountryModel.cs" />
+        <option value="$PROJECT_DIR$/StatsWorld/CallAPI.cs" />
+        <option value="$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" />
+        <option value="$PROJECT_DIR$/StatsWorld/Program.cs" />
+        <option value="$PROJECT_DIR$/QandA/Program.cs" />
+        <option value="$PROJECT_DIR$/src/CovidApp/Pages/QaA.razor" />
       </list>
     </option>
   </component>
@@ -64,14 +74,33 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3496708" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.115581565" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29992685" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.04761905" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.StatsWorld">
+  <component name="RunManager" selected=".NET Launch Settings Profile.CovidApp: IIS Express (2)">
+    <configuration name="CovidStatsDownloader" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/CovidStatsDownloader/CovidStatsDownloader.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="PunktPobran" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -90,10 +119,10 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="StatsWorld" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+    <configuration name="StatsWorld" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/StatsWorld/bin/Debug/netcoreapp3.1/StatsWorld.dll" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/StatsWorld/bin/Debug/netcoreapp3.1" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -103,12 +132,111 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v3.1" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Szpitale" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Szpitale/Szpitale.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="CovidApp: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+    <configuration name="TravelingScraper" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/TravelingScraper/TravelingScraper.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="TwitterApi" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/TwitterApi/TwitterApi.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="App" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/App/App.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="App" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="App: IIS Express (1)" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/App/App.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="App" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="App: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/App/App.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="App" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="CovidApp" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/CovidApp/CovidApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
       <option name="LAUNCH_PROFILE_NAME" value="CovidApp" />
@@ -123,9 +251,72 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="CovidApp: IIS Express (1)" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/CovidApp/CovidApp.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="CovidApp" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="CovidApp: IIS Express (2)" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/CovidApp/CovidApp.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="CovidApp" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="CovidApp: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/CovidApp/CovidApp.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.App" />
+      <item itemvalue=".NET Launch Settings Profile.App: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.CovidApp" />
+      <item itemvalue=".NET Launch Settings Profile.CovidApp: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.App: IIS Express (1)" />
+      <item itemvalue=".NET Launch Settings Profile.CovidApp: IIS Express (1)" />
+      <item itemvalue=".NET Launch Settings Profile.CovidApp: IIS Express (2)" />
+      <item itemvalue=".NET Project.CovidStatsDownloader" />
+      <item itemvalue=".NET Project.PunktPobran" />
+      <item itemvalue=".NET Project.Szpitale" />
+      <item itemvalue=".NET Project.TravelingScraper" />
+      <item itemvalue=".NET Project.TwitterApi" />
+      <item itemvalue=".NET Project.StatsWorld" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue=".NET Launch Settings Profile.CovidApp: IIS Express" />
+        <item itemvalue=".NET Launch Settings Profile.CovidApp: IIS Express (2)" />
+        <item itemvalue=".NET Project.StatsWorld" />
+        <item itemvalue=".NET Launch Settings Profile.CovidApp: IIS Express (1)" />
+        <item itemvalue=".NET Launch Settings Profile.App: IIS Express (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -137,14 +328,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607102987379</updated>
-      <workItem from="1607103010847" duration="3395000" />
+      <workItem from="1607103010847" duration="5193000" />
+      <workItem from="1607154550915" duration="3823000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -156,133 +348,194 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="211" key="GridCell.Tab.0.bottom" timestamp="1607114392994">
+    <state width="699" height="17" key="GridCell.Tab.0.bottom" timestamp="1607158555392">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="699" height="17" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607158555392" />
+    <state width="699" height="17" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1607157960179" />
+    <state width="699" height="246" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1607155606586" />
+    <state width="1398" height="211" key="GridCell.Tab.0.bottom/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222749" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134447" />
     <state width="1398" height="331" key="GridCell.Tab.0.bottom/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220756" />
-    <state width="1398" height="211" key="GridCell.Tab.0.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607114392994" />
-    <state width="1398" height="211" key="GridCell.Tab.0.center" timestamp="1607114392991">
+    <state width="1398" height="298" key="GridCell.Tab.0.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035716" />
+    <state width="699" height="17" key="GridCell.Tab.0.center" timestamp="1607158555390">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="699" height="17" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607158555390" />
+    <state width="699" height="17" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1607157960178" />
+    <state width="699" height="246" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1607155606585" />
+    <state width="1398" height="211" key="GridCell.Tab.0.center/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222747" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134445" />
     <state width="1398" height="331" key="GridCell.Tab.0.center/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220754" />
-    <state width="1398" height="211" key="GridCell.Tab.0.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607114392991" />
-    <state width="1398" height="211" key="GridCell.Tab.0.left" timestamp="1607114392990">
+    <state width="1398" height="298" key="GridCell.Tab.0.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035715" />
+    <state width="699" height="17" key="GridCell.Tab.0.left" timestamp="1607158555389">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="699" height="17" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607158555389" />
+    <state width="699" height="17" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1607157960177" />
+    <state width="699" height="246" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1607155606584" />
+    <state width="1398" height="211" key="GridCell.Tab.0.left/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222745" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134444" />
     <state width="1398" height="331" key="GridCell.Tab.0.left/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220753" />
-    <state width="1398" height="211" key="GridCell.Tab.0.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607114392990" />
-    <state width="1398" height="211" key="GridCell.Tab.0.right" timestamp="1607114392992">
+    <state width="1398" height="298" key="GridCell.Tab.0.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035714" />
+    <state width="699" height="17" key="GridCell.Tab.0.right" timestamp="1607158555391">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="699" height="17" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607158555391" />
+    <state width="699" height="17" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1607157960178" />
+    <state width="699" height="246" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1607155606585" />
+    <state width="1398" height="211" key="GridCell.Tab.0.right/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222748" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134446" />
     <state width="1398" height="331" key="GridCell.Tab.0.right/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220755" />
-    <state width="1398" height="211" key="GridCell.Tab.0.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607114392992" />
-    <state width="1398" height="435" key="GridCell.Tab.1.bottom" timestamp="1607106825298">
+    <state width="1398" height="298" key="GridCell.Tab.0.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035715" />
+    <state width="1252" height="298" key="GridCell.Tab.1.bottom" timestamp="1607154335241">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607154335241" />
+    <state width="1398" height="298" key="GridCell.Tab.1.bottom/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133673" />
     <state width="1398" height="331" key="GridCell.Tab.1.bottom/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220472" />
-    <state width="1398" height="435" key="GridCell.Tab.1.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106825298" />
-    <state width="1398" height="435" key="GridCell.Tab.1.center" timestamp="1607106825297">
+    <state width="1398" height="298" key="GridCell.Tab.1.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121039215" />
+    <state width="1252" height="298" key="GridCell.Tab.1.center" timestamp="1607154335240">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1607154335240" />
+    <state width="1398" height="298" key="GridCell.Tab.1.center/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133671" />
     <state width="1398" height="331" key="GridCell.Tab.1.center/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220471" />
-    <state width="1398" height="435" key="GridCell.Tab.1.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106825297" />
-    <state width="1398" height="435" key="GridCell.Tab.1.left" timestamp="1607106825296">
+    <state width="1398" height="298" key="GridCell.Tab.1.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121039214" />
+    <state width="1252" height="298" key="GridCell.Tab.1.left" timestamp="1607154335239">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1607154335239" />
+    <state width="1398" height="298" key="GridCell.Tab.1.left/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133668" />
     <state width="1398" height="331" key="GridCell.Tab.1.left/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220470" />
-    <state width="1398" height="435" key="GridCell.Tab.1.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106825296" />
-    <state width="1398" height="435" key="GridCell.Tab.1.right" timestamp="1607106825297">
+    <state width="1398" height="298" key="GridCell.Tab.1.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121039214" />
+    <state width="1252" height="298" key="GridCell.Tab.1.right" timestamp="1607154335240">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1607154335240" />
+    <state width="1398" height="298" key="GridCell.Tab.1.right/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133672" />
     <state width="1398" height="331" key="GridCell.Tab.1.right/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220471" />
-    <state width="1398" height="435" key="GridCell.Tab.1.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106825297" />
-    <state width="1398" height="435" key="GridCell.Tab.2.bottom" timestamp="1607106822100">
+    <state width="1398" height="298" key="GridCell.Tab.1.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121039215" />
+    <state width="1252" height="298" key="GridCell.Tab.2.bottom" timestamp="1607154335243">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.2.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607154335243" />
+    <state width="1398" height="298" key="GridCell.Tab.2.bottom/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133676" />
     <state width="1398" height="331" key="GridCell.Tab.2.bottom/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220480" />
-    <state width="1398" height="435" key="GridCell.Tab.2.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822100" />
-    <state width="1398" height="435" key="GridCell.Tab.2.center" timestamp="1607106822099">
+    <state width="1398" height="298" key="GridCell.Tab.2.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035552" />
+    <state width="1252" height="298" key="GridCell.Tab.2.center" timestamp="1607154335242">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.2.center/0.0.1440.900@0.0.1440.900" timestamp="1607154335242" />
+    <state width="1398" height="298" key="GridCell.Tab.2.center/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133674" />
     <state width="1398" height="331" key="GridCell.Tab.2.center/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220475" />
-    <state width="1398" height="435" key="GridCell.Tab.2.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822099" />
-    <state width="1398" height="435" key="GridCell.Tab.2.left" timestamp="1607106822098">
+    <state width="1398" height="298" key="GridCell.Tab.2.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035551" />
+    <state width="1252" height="298" key="GridCell.Tab.2.left" timestamp="1607154335242">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.2.left/0.0.1440.900@0.0.1440.900" timestamp="1607154335242" />
+    <state width="1398" height="298" key="GridCell.Tab.2.left/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133673" />
     <state width="1398" height="331" key="GridCell.Tab.2.left/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220473" />
-    <state width="1398" height="435" key="GridCell.Tab.2.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822098" />
-    <state width="1398" height="435" key="GridCell.Tab.2.right" timestamp="1607106822100">
+    <state width="1398" height="298" key="GridCell.Tab.2.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035550" />
+    <state width="1252" height="298" key="GridCell.Tab.2.right" timestamp="1607154335242">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.2.right/0.0.1440.900@0.0.1440.900" timestamp="1607154335242" />
+    <state width="1398" height="298" key="GridCell.Tab.2.right/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133675" />
     <state width="1398" height="331" key="GridCell.Tab.2.right/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220479" />
-    <state width="1398" height="435" key="GridCell.Tab.2.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822100" />
-    <state width="1398" height="435" key="GridCell.Tab.3.bottom" timestamp="1607106822103">
+    <state width="1398" height="298" key="GridCell.Tab.2.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035552" />
+    <state width="1252" height="298" key="GridCell.Tab.3.bottom" timestamp="1607154335246">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.3.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607154335246" />
+    <state width="1398" height="298" key="GridCell.Tab.3.bottom/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133680" />
     <state width="1398" height="331" key="GridCell.Tab.3.bottom/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220483" />
-    <state width="1398" height="435" key="GridCell.Tab.3.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822103" />
-    <state width="1398" height="435" key="GridCell.Tab.3.center" timestamp="1607106822102">
+    <state width="1398" height="298" key="GridCell.Tab.3.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035555" />
+    <state width="1252" height="298" key="GridCell.Tab.3.center" timestamp="1607154335244">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.3.center/0.0.1440.900@0.0.1440.900" timestamp="1607154335244" />
+    <state width="1398" height="298" key="GridCell.Tab.3.center/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133678" />
     <state width="1398" height="331" key="GridCell.Tab.3.center/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220481" />
-    <state width="1398" height="435" key="GridCell.Tab.3.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822102" />
-    <state width="1398" height="435" key="GridCell.Tab.3.left" timestamp="1607106822101">
+    <state width="1398" height="298" key="GridCell.Tab.3.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035554" />
+    <state width="1252" height="298" key="GridCell.Tab.3.left" timestamp="1607154335244">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.3.left/0.0.1440.900@0.0.1440.900" timestamp="1607154335244" />
+    <state width="1398" height="298" key="GridCell.Tab.3.left/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133676" />
     <state width="1398" height="331" key="GridCell.Tab.3.left/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220481" />
-    <state width="1398" height="435" key="GridCell.Tab.3.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822101" />
-    <state width="1398" height="435" key="GridCell.Tab.3.right" timestamp="1607106822102">
+    <state width="1398" height="298" key="GridCell.Tab.3.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035553" />
+    <state width="1252" height="298" key="GridCell.Tab.3.right" timestamp="1607154335245">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.3.right/0.0.1440.900@0.0.1440.900" timestamp="1607154335245" />
+    <state width="1398" height="298" key="GridCell.Tab.3.right/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133679" />
     <state width="1398" height="331" key="GridCell.Tab.3.right/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220482" />
-    <state width="1398" height="435" key="GridCell.Tab.3.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822102" />
-    <state width="1398" height="435" key="GridCell.Tab.4.bottom" timestamp="1607106822106">
+    <state width="1398" height="298" key="GridCell.Tab.3.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035554" />
+    <state width="1252" height="298" key="GridCell.Tab.4.bottom" timestamp="1607154335248">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.4.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607154335248" />
+    <state width="1398" height="298" key="GridCell.Tab.4.bottom/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133682" />
     <state width="1398" height="331" key="GridCell.Tab.4.bottom/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220485" />
-    <state width="1398" height="435" key="GridCell.Tab.4.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822106" />
-    <state width="1398" height="435" key="GridCell.Tab.4.center" timestamp="1607106822104">
+    <state width="1398" height="298" key="GridCell.Tab.4.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035557" />
+    <state width="1252" height="298" key="GridCell.Tab.4.center" timestamp="1607154335248">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.4.center/0.0.1440.900@0.0.1440.900" timestamp="1607154335248" />
+    <state width="1398" height="298" key="GridCell.Tab.4.center/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133681" />
     <state width="1398" height="331" key="GridCell.Tab.4.center/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220484" />
-    <state width="1398" height="435" key="GridCell.Tab.4.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822104" />
-    <state width="1398" height="435" key="GridCell.Tab.4.left" timestamp="1607106822104">
+    <state width="1398" height="298" key="GridCell.Tab.4.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035556" />
+    <state width="1252" height="298" key="GridCell.Tab.4.left" timestamp="1607154335247">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.4.left/0.0.1440.900@0.0.1440.900" timestamp="1607154335247" />
+    <state width="1398" height="298" key="GridCell.Tab.4.left/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133680" />
     <state width="1398" height="331" key="GridCell.Tab.4.left/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220484" />
-    <state width="1398" height="435" key="GridCell.Tab.4.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822104" />
-    <state width="1398" height="435" key="GridCell.Tab.4.right" timestamp="1607106822105">
+    <state width="1398" height="298" key="GridCell.Tab.4.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035555" />
+    <state width="1252" height="298" key="GridCell.Tab.4.right" timestamp="1607154335248">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1252" height="298" key="GridCell.Tab.4.right/0.0.1440.900@0.0.1440.900" timestamp="1607154335248" />
+    <state width="1398" height="298" key="GridCell.Tab.4.right/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119133682" />
     <state width="1398" height="331" key="GridCell.Tab.4.right/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220485" />
-    <state width="1398" height="435" key="GridCell.Tab.4.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106822105" />
-    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size" timestamp="1607113121851">
+    <state width="1398" height="298" key="GridCell.Tab.4.right/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035557" />
+    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size" timestamp="1607115018244">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607113121851" />
+    <state x="320" y="189" key="Rider.ProjectTemplateDialog.Size/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607115018244" />
     <state x="221" y="89" width="1187" height="722" key="SettingsEditor" timestamp="1607105352317">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" width="1187" height="722" key="SettingsEditor/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607105352317" />
-    <state width="720" height="450" key="XDebugger.FullValuePopup" timestamp="1607106273775">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state width="720" height="450" key="XDebugger.FullValuePopup" timestamp="1607120350884">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115257381" />
     <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106273775" />
-    <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607106064877" />
+    <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607120350884" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PunktPobran/Program.cs</url>
-          <line>27</line>
-          <properties documentPath="$PROJECT_DIR$/PunktPobran/Program.cs" initialLine="27" />
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs</url>
+          <line>17</line>
+          <properties documentPath="$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" initialLine="17">
+            <startOffsets>
+              <option value="748" />
+            </startOffsets>
+            <endOffsets>
+              <option value="777" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

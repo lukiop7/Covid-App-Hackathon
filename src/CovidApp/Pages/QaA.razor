@@ -1,23 +1,49 @@
 ﻿@page "/QaA"
 
-Hello world
+<h1>Częste pytania i odpowiedzi</h1>
 <br/>
-@message
+
+@code {
+    private bool loading = true;
+
+    void Click(QandA.Question q)
+    {
+        q.visible = !q.visible;
+    }
+}
+
+
 
 @foreach(var topic in topics)
 {
-    @topic.name 
-    <br/>
+    <h3>@topic.name</h3>
+    @foreach (var question in topic.questions)
+    {
+        <button type="button" class="btn btn-dark" @onclick="( () => Click(question))">  @((MarkupString)question.question) </button>
+        if (@question.visible)
+        {
+            <br/>
+            @((MarkupString)question.answer)
+            <br/>
+            <br/>
+        }
+        <br/>
+        <br/>
+    }
+
+
 }
 
 @code {
-    private string message = "...";
+
     private List<QandA.Topic> topics = new List<QandA.Topic>();
+    private List<QandA.Question> questions = new List<QandA.Question>();
 
     override protected async void OnInitialized()
     {
         topics = await QandA.Program.Scrap();
-        message = "";
         this.StateHasChanged();
     }
+    
+    
 } 
