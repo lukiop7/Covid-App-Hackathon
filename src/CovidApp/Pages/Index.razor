@@ -1,21 +1,49 @@
 ﻿@page "/"
 
-<Tweet Url="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etf" />
-
-
+@*<Tweet Url="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etf" />
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<Chart Config="@config"></Chart>
+<Chart Config="@config"></Chart>*@
+
+<div class="index-maindiv">
+    <div  class="index-charts">
+        <div class="index-charts left">
+
+            <Chart Config="@chart2"></Chart>
+            <Chart Config="@chart3"></Chart>
+
+        </div>
+        <div class="index-charts right">
+
+            <Chart Config="@chart1"></Chart>
+            <Chart Config="@config"></Chart>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
 
 
 <button class="btn btn-primary" @onclick="ChangeValues">Click me</button>
 
 @code {
-    private PieConfig config;
+    private PieConfig config, chart1, chart2, chart3;
     Random random = new Random();
 
     PieDataset<double> dataset = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = Colors.RandomColors(200, 60)
+    };
+    PieDataset<double> dataset1 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = Colors.RandomColors(200, 60)
+    };
+    PieDataset<double> dataset2 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+    {
+        BackgroundColor = Colors.RandomColors(200, 60)
+    };
+    PieDataset<double> dataset3 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
     {
         BackgroundColor = Colors.RandomColors(200, 60)
     };
@@ -34,6 +62,42 @@
                 },
             },
         };
+        chart1 = new PieConfig(true)
+        {
+            Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Julka"
+                },
+            },
+        };
+        chart2 = new PieConfig(true)
+        {
+            Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Sasin"
+                },
+            },
+        };
+        chart3 = new PieConfig(true)
+        {
+            Options = new PieOptions
+            {
+                Responsive = true,
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "lol"
+                },
+            },
+        };
 
         foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
         {
@@ -41,6 +105,9 @@
         }
         await Task.Delay(100);
         config.Data.Datasets.Add(dataset);
+        chart1.Data.Datasets.Add(dataset);
+        chart2.Data.Datasets.Add(dataset);
+        chart3.Data.Datasets.Add(dataset);
         this.StateHasChanged();
     }
 

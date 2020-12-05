@@ -136,6 +136,22 @@ app {
     top: 0.5rem;
 }
 
+.index-charts{
+    flex: auto;
+}
+    .index-charts .left {
+        /*background: lightyellow;*/
+        width: 49%;
+        margin-right: 2%;
+        float: left;
+    }
+    .index-charts .right {
+        /*background: lightgreen;*/
+        width: 49%;
+        /*margin-right: 2%;*/
+        float: left;
+    }
+
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
         display: none;
@@ -147,6 +163,19 @@ app {
 
     .main .top-row a, .main .top-row .btn-link {
         margin-left: 0;
+    }
+
+    .index-charts .left {
+        background: lightyellow;
+        width: 100%;
+        float: left;
+    }
+
+    .index-charts .right {
+        background: lightgreen;
+        width: 100%;
+        /*margin-right: 2%;*/
+        float: left;
     }
 }
 
