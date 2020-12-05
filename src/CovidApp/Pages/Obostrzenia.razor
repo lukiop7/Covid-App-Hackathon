@@ -1,0 +1,26 @@
+﻿@page "/obostrzenia"
+
+@using TravelingScraper
+
+@if (content == null)
+{
+    <Spinner />
+}
+else
+{
+    <div>
+        @((MarkupString)content)
+    </div>
+}
+
+
+@code
+{
+    private string content = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var scrapper = new ObostrzeniaScraper();
+        content = await scrapper.GetObostrzenia();
+    }
+}

@@ -1,51 +1,41 @@
-﻿@page "/"
+﻿@using ChartJs.Blazor.BarChart
 
-<Tweet Url="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etf" />
+@page "/"
 
-
-
-<SurveyPrompt Title="How is Blazor working for you?" />
-
-<Chart Config="@config"></Chart>
+<div class="index-maindiv">
+    <div class="index-charts">
 
 
-<button class="btn btn-primary" @onclick="ChangeValues">Click me</button>
+        
+    </div>
+</div>
+<div class="clearfix"></div>
+
+
+@*<button class="btn btn-primary" @onclick="ChangeValues">Click me</button>*@
 
 @code {
-    private PieConfig config;
+
+    List<CovidStatsDownloader.PolandStats> polandStats = new List<CovidStatsDownloader.PolandStats>();
+
+
     Random random = new Random();
 
-    PieDataset<double> dataset = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
+
+    private async Task FetchData()
     {
-        BackgroundColor = Colors.RandomColors(200, 60)
-    };
+        polandStats = await CovidStatsDownloader.Program.GetPolandStatsAsync();
+    }
 
     protected override async void OnInitialized()
     {
-        config = new PieConfig(true)
-        {
-            Options = new PieOptions
-            {
-                Responsive = true,
-                Title = new OptionsTitle
-                {
-                    Display = true,
-                    Text = "ChartJs.Blazor Pie Chart"
-                },
-            },
-        };
 
-        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
-        {
-            config.Data.Labels.Add(color);
-        }
+        await FetchData();
+
+
+
         await Task.Delay(100);
-        config.Data.Datasets.Add(dataset);
         this.StateHasChanged();
     }
 
-    void ChangeValues()
-    {
-        dataset.Add(random.NextDouble() * 10);
-    }
 }

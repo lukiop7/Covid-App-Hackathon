@@ -53,6 +53,7 @@
         <e p="Pages" t="Include">
           <e p="_Host.cshtml" t="Include" />
           <e p="Counter.razor" t="Include" />
+          <e p="Diagnostics.razor" t="Include" />
           <e p="Error.razor" t="Include" />
           <e p="FetchData.razor" t="Include" />
           <e p="Index.razor" t="Include" />
@@ -67,6 +68,7 @@
           <e p="MainLayout.razor" t="Include" />
           <e p="NavMenu.razor" t="Include" />
           <e p="PageLink.razor" t="Include" />
+          <e p="Spinner.razor" t="Include" />
           <e p="SurveyPrompt.razor" t="Include" />
           <e p="Tweet.razor" t="Include" />
         </e>

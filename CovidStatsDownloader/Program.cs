@@ -10,15 +10,17 @@ using CsvHelper.Configuration.Attributes;
 using CsvHelper;
 using System.Linq;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace CovidStatsDownloader
 {
     public static class Program
     {
-        public static async System.Threading.Tasks.Task Main()
+        public static async Task Main(string[] args)
         {
-            var list = await GetPolandStatsAsync();
+            var result = await GetPolandStatsAsync();
         }
+
         public static async System.Threading.Tasks.Task<List<PolandStats>> GetPolandStatsAsync()
         {
             ScrapingBrowser browser = new ScrapingBrowser();
@@ -74,15 +76,15 @@ namespace CovidStatsDownloader
         [Index(1)]
         public string City { get; set; }
         [Index(2)]
-        public int? TotalCases { get; set; }
+        public double? TotalCases { get; set; }
         [Index(3)]
         public double? Cases10k { get; set; }
         [Index(4)]
-        public int? Deaths { get; set; }
+        public double? Deaths { get; set; }
         [Index(5)]
-        public int? DeathsCOVID { get; set; }
+        public double? DeathsCOVID { get; set; }
         [Index(6)]
-        public int? DeathsDiseases { get; set; }
+        public double? DeathsDiseases { get; set; }
         [Index(7)]
         public string TerritoryCode { get; set; }
     }
