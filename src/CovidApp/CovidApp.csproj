@@ -19,4 +19,10 @@
     <ProjectReference Include="..\TravelingScraper\TravelingScraper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Data\input.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
