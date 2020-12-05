@@ -4,9 +4,9 @@ namespace PunktPobran
 {
     internal class Program
     {
-        private static async Task Main(string[] args)
+        private static void  Main(string[] args)
         {
-            var list = await PunktPobranScrapper.GetPunktyPobran();
+            var list = PunktPobranScrapper.GetPunktyPobran();
         }
     }
 }
