@@ -1,15 +1,59 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
+<NavMenu ToggleNarrow=ToggleMenuNarrow
+         CollapseNarrow=CollapseMenuNarrow
+         ToggleWide=ToggleMenuWide
+         WideCollapsed=MenuWideCollapsed
+         NarrowCollapsed=MenuNarrowCollapsed />
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-    </div>
-
+<div class=@MainCssClass style="z-index: 0">
     <div class="content px-4">
-        @Body
+        <div class="card">
+            <div class="card-body">
+                <div id="blazor-error-ui">
+                    <environment include="Staging,Production">
+                        An error has occurred. This application may no longer respond until reloaded.
+                    </environment>
+                    <environment include="Development">
+                        An unhandled exception has occurred. See browser dev tools for details.
+                    </environment>
+                    <a href="" class="reload">Reload</a>
+                    <a class="dismiss">🗙</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content px-4">
+        <div class="card">
+            <div class="card-body">
+                @Body
+            </div>
+        </div>
     </div>
 </div>
+
+@code {
+    bool MenuWideCollapsed { get; set; } = false;
+    bool MenuNarrowCollapsed { get; set; } = true;
+
+    private string MainCssClass => MenuWideCollapsed ? "main main-collapsed" : "main";
+
+    void CollapseMenuNarrow(object sender, ChangeEventArgs args)
+    {
+        MenuNarrowCollapsed = true;
+        this.StateHasChanged();
+    }
+
+    void ToggleMenuWide(object sender, ChangeEventArgs args)
+    {
+        MenuWideCollapsed = !MenuWideCollapsed;
+        this.StateHasChanged();
+    }
+
+    void ToggleMenuNarrow(object sender, ChangeEventArgs args)
+    {
+        MenuNarrowCollapsed = !MenuNarrowCollapsed;
+        this.StateHasChanged();
+    }
+}

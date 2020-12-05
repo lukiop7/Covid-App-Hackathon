@@ -1,0 +1,65 @@
+﻿@implements IDisposable
+<li>
+    <a class=@GetClass() @onclick="OnClick" role="button">
+
+        @if (Icon != null)
+        {
+            <i class=@Icon>
+            </i>
+        }
+        <span>
+            @Label
+        </span>
+    </a>
+
+    @if (ChildContent != null)
+    {
+        <ul class=@(showChildren ? "list-unstyled" : "hidden list-unstyled") id="homeSubmenu">
+            @ChildContent
+        </ul>
+    }
+</li>
+@code  {
+    private bool showChildren = false;
+
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Icon { get; set; }
+    [Parameter] public string Page { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Inject] NavigationManager NavigationManager { get; set; }
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += this.OnPageChanged;
+    }
+
+    string GetClass()
+    {
+        return NavigationManager.BaseUri == Page ? "active" : "no-active";
+    }
+
+    void OnClick()
+    {
+        if (String.IsNullOrWhiteSpace(Page))
+        {
+            showChildren = !showChildren;
+        }
+        else
+        {
+            NavigationManager.NavigateTo(Page);
+        }
+    }
+
+    void OnPageChanged(object sender, LocationChangedEventArgs args)
+    {
+        this.StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= this.OnPageChanged;
+    }
+}
