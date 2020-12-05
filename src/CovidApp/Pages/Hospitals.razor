@@ -2,158 +2,163 @@
 
 <h2>Znajdź pomoc w Twojej okolicy.</h2>
 <br />
-    Wybierz swoje województwo aby zobaczyć listę szpitali lub punktów pobrań wymazów blisko Ciebie.
-<br />
+<div class="card rounded">
+    <div class="card-header ">
+        Wybierz swoje województwo aby zobaczyć listę szpitali lub punktów pobrań wymazów blisko Ciebie.
+    </div>
+    <br />
 
-<ul class="nav nav-pills">
-    <li class="nav-item" style="visibility: hidden;">
-        <a class=@((hospitals? "nav-link active" : "nav-link")) @onclick="(() => ClickTab1())">Szpitale</a>
-    </li>
-    <li class="nav-item">
-        <a class=@((hospitals? "nav-link active" : "nav-link")) @onclick="(() => ClickTab1())">Szpitale</a>
-    </li>
-    <li class="nav-item">
-        <a class=@((hospitals? "nav-link" : "nav-link active")) @onclick="(() => ClickTab2())">Punkty Pobrań</a>
-    </li>
-</ul>
-
-@code {
-    void ClickCity(Szpitale.City q)
-    {
-        q.visible = !q.visible;
-    }
-    void ClickHospital(Szpitale.Hospital q)
-    {
-        q.visible = !q.visible;
-    }
-    void ClickCity(PunktPobran.GroupedModel q)
-    {
-        q.visible = !q.visible;
-    }
-    void ClickHospital(PunktPobran.TownPoints q)
-    {
-        q.visible = !q.visible;
-    }
-    void ClickTab1()
-    {
-        hospitals = true;
-    }
-    void ClickTab2()
-    {
-        hospitals = false;
-    }
-}
-
-
-@if (cities == null || hospitals == null)
-{
-    <Spinner />
-}
-else
-{
-    @if (hospitals)
-    {
-        <div class="container" id="city" style="margin-top: 20px;">
-            @foreach (var city in cities)
+    <ul class="nav nav-pills">
+        <li class="nav-item" style="visibility: hidden;">
+            <a class=@((hospitals? "nav-link active" : "nav-link")) @onclick="(() => ClickTab1())">Szpitale</a>
+        </li>
+        <li class="nav-item">
+            <a class=@((hospitals? "nav-link active" : "nav-link")) @onclick="(() => ClickTab1())">Szpitale</a>
+        </li>
+        <li class="nav-item">
+            <a class=@((hospitals? "nav-link" : "nav-link active")) @onclick="(() => ClickTab2())">Punkty Pobrań</a>
+        </li>
+    </ul>
+    <div class="card rounded">
+        @code {
+            void ClickCity(Szpitale.City q)
             {
-                <div class="container" id="hospitals" style="margin-top: 10px; margin-bottom: 10px;">
-                    <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="(() => ClickCity(city))">  @((MarkupString)city.name) </button>
-                    @foreach (var hospital in city.hospitals)
+                q.visible = !q.visible;
+            }
+            void ClickHospital(Szpitale.Hospital q)
+            {
+                q.visible = !q.visible;
+            }
+            void ClickCity(PunktPobran.GroupedModel q)
+            {
+                q.visible = !q.visible;
+            }
+            void ClickHospital(PunktPobran.TownPoints q)
+            {
+                q.visible = !q.visible;
+            }
+            void ClickTab1()
+            {
+                hospitals = true;
+            }
+            void ClickTab2()
+            {
+                hospitals = false;
+            }
+        }
+
+
+        @if (cities == null || hospitals == null)
+        {
+            <Spinner />
+        }
+        else
+        {
+            @if (hospitals)
+            {
+                <div class="container" id="city" style="margin-top: 20px;">
+                    @foreach (var city in cities)
                     {
-                        <div class="container" id="details" style="margin-top: 5px; margin-bottom:5px;">
-                            @if (city.visible)
+                        <div class="container" id="hospitals" style="margin-top: 10px; margin-bottom: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="(() => ClickCity(city))">  @((MarkupString)city.name) </button>
+                            @foreach (var hospital in city.hospitals)
                             {
-
-                                <button type="button" class="btn btn-outline-info btn-lg btn-block" @onclick="(() => ClickHospital(hospital))">  @((MarkupString)hospital.hospitalName) </button>
-                                @if (hospital.visible)
-                                {
-
-                                    @foreach (var hospitalad in hospital.hospitalAddress)
+                                <div class="container" id="details" style="margin-top: 5px; margin-bottom:5px;">
+                                    @if (city.visible)
                                     {
-                                        <div class="card card-body text-center" style="margin-top: 5px; margin-bottom:5px;">
-                                            @{ var address = hospitalad.Split(',').ToList();
-                                                @foreach (var line in address)
-                                                {
-                                                    @((MarkupString)line)
-                                                    <br />
-                                                }
+
+                                        <button type="button" class="btn btn-outline-info btn-lg btn-block" @onclick="(() => ClickHospital(hospital))">  @((MarkupString)hospital.hospitalName) </button>
+                                        @if (hospital.visible)
+                                        {
+
+                                            @foreach (var hospitalad in hospital.hospitalAddress)
+                                            {
+                                                <div class="card card-body text-center" style="margin-top: 5px; margin-bottom:5px;">
+                                                    @{ var address = hospitalad.Split(',').ToList();
+                                                        @foreach (var line in address)
+                                                        {
+                                                            @((MarkupString)line)
+                                                            <br />
+                                                        }
+                                                    }
+                                                </div>
                                             }
-                                        </div>
-                                    }
 
-                                }
+                                        }
+                                    }
+                                </div>
+
                             }
                         </div>
-
                     }
                 </div>
             }
-        </div>
-    }
-    else
-    {
-        <div class="container" id="city" style="margin-top: 20px;">
-            @foreach (var point in points)
+            else
             {
-                <div class="container" id="hospitals" style="margin-top: 10px; margin-bottom: 10px;">
-                    <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="(() => ClickCity(point))">  @((MarkupString)point.Województwo) </button>
-                    @foreach (var city in point.TownPointsList)
+                <div class="container" id="city" style="margin-top: 20px;">
+                    @foreach (var point in points)
                     {
-                        <div class="container" id="details" style="margin-top: 5px; margin-bottom:5px;">
-                            @if (point.visible)
+                        <div class="container" id="hospitals" style="margin-top: 10px; margin-bottom: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="(() => ClickCity(point))">  @((MarkupString)point.Województwo) </button>
+                            @foreach (var city in point.TownPointsList)
                             {
-
-                                <button type="button" class="btn btn-outline-info btn-lg btn-block" @onclick="(() => ClickHospital(city))">  @((MarkupString)city.City) </button>
-                                @if (city.visible)
-                                {
-
-                                    @foreach (var pointCity in city.Points)
+                                <div class="container" id="details" style="margin-top: 5px; margin-bottom:5px;">
+                                    @if (point.visible)
                                     {
-                                        <div class="card card-body text-center" style="margin-top: 5px; margin-bottom:5px;">
-                                            <b> Nazwa:</b> @((MarkupString)pointCity.nazwa_swd)
-                                            <br />
-                                            <b>
-                                                Adres:
-                                            </b> Ul.@((MarkupString)pointCity.adr_lok_ulica) @((MarkupString)pointCity.adr_lok_nr_domu)
-                                            <br />
-                                            @((MarkupString)pointCity.adr_lok_miejsc)  @((MarkupString)pointCity.adr_lok_kod_poczt)
-                                            <br />
-                                            <b>
-                                                Telefon:
-                                            </b> @((MarkupString)pointCity.telefon_rej)
-                                            <br />
-                                            <b>
-                                                Harmonogram przyjęć:
-                                            </b>
-                                            <br />
-                                                Pon @((MarkupString)pointCity.harm_pon)
-                                            <br />
-                                                Wt @((MarkupString)pointCity.harm_wt)
-                                            <br />
-                                                Śr @((MarkupString)pointCity.harm_sr)
-                                            <br />
-                                                Czw @((MarkupString)pointCity.harm_czw)
-                                            <br />
-                                                Pt @((MarkupString)pointCity.harm_pt)
-                                            <br />
-                                                Sob @((MarkupString)pointCity.harm_sob)
-                                            <br />
-                                                Niedz @((MarkupString)pointCity.harm_niedz)
-                                            <br />
-                                        </div>
-                                    }
 
-                                }
+                                        <button type="button" class="btn btn-outline-info btn-lg btn-block" @onclick="(() => ClickHospital(city))">  @((MarkupString)city.City) </button>
+                                        @if (city.visible)
+                                        {
+
+                                            @foreach (var pointCity in city.Points)
+                                            {
+                                                <div class="card card-body text-center" style="margin-top: 5px; margin-bottom:5px;">
+                                                    <b> Nazwa:</b> @((MarkupString)pointCity.nazwa_swd)
+                                                    <br />
+                                                    <b>
+                                                        Adres:
+                                                    </b> Ul.@((MarkupString)pointCity.adr_lok_ulica) @((MarkupString)pointCity.adr_lok_nr_domu)
+                                                    <br />
+                                                    @((MarkupString)pointCity.adr_lok_miejsc)  @((MarkupString)pointCity.adr_lok_kod_poczt)
+                                                    <br />
+                                                    <b>
+                                                        Telefon:
+                                                    </b> @((MarkupString)pointCity.telefon_rej)
+                                                    <br />
+                                                    <b>
+                                                        Harmonogram przyjęć:
+                                                    </b>
+                                                    <br />
+                                                    Pon @((MarkupString)pointCity.harm_pon)
+                                                    <br />
+                                                    Wt @((MarkupString)pointCity.harm_wt)
+                                                    <br />
+                                                    Śr @((MarkupString)pointCity.harm_sr)
+                                                    <br />
+                                                    Czw @((MarkupString)pointCity.harm_czw)
+                                                    <br />
+                                                    Pt @((MarkupString)pointCity.harm_pt)
+                                                    <br />
+                                                    Sob @((MarkupString)pointCity.harm_sob)
+                                                    <br />
+                                                    Niedz @((MarkupString)pointCity.harm_niedz)
+                                                    <br />
+                                                </div>
+                                            }
+
+                                        }
+                                    }
+                                </div>
+
                             }
                         </div>
-
                     }
                 </div>
             }
-        </div>
-    }
 
-}
+        }
+    </div>
+</div>
 
 
 
