@@ -77,7 +77,7 @@ namespace PunktPobran
                     town.Points = points;
                     towns.Add(town);
                 }
-                modelToGroup.TownPointsList = towns;
+                modelToGroup.TownPointsList = towns.OrderBy(c=>c.City).ToList();
                 grouped.Add(modelToGroup);
             }
 
