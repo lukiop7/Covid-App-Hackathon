@@ -38,10 +38,27 @@ else
                 @(symptoms.Where(s => s.Selected && s.Real).Count())
             </div>
 
-            <button class="btn btn-secondary" @onclick="BeginDiagnostics">Rozpocznij test ponownie</button>
+
+            @if (symptoms.Where(s => s.Selected && s.Real).Count() >= 3)
+            {
+                <div>
+                    Możliwe że możesz być zarażony/na wirusem COVID.
+                    <br />
+                    <a href="/"> Tutaj znajdziesz informacje odnośnie punktów pobrań oraz szpitali </a>
+                </div>
+
+            }
+            else
+            {
+                <div>
+                    Objawy nie wskazują na zarażenie COVID-19
+                </div>
+            }
+
+            <button class="btn btn-secondary" @onclick="BeginDiagnostics">Wykonaj test ponownie</button>
+
             break;
     }
-
 }
 
 <style>
@@ -90,7 +107,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(1000);
+        await Task.Delay(500);
         loading = false;
     }
 

@@ -7,7 +7,7 @@ namespace TravelingScraper
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine(await new TravelingScraper().GetTravelingInformation());
+            Console.WriteLine(await new ObostrzeniaScraper().GetObostrzenia());
         }
     }
 }
