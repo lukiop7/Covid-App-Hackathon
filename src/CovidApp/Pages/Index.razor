@@ -128,7 +128,7 @@
 
         var colorlist = Colors.GradientColors(ddd.Count(), 220, 100, 100);
 
-        for (int i = 0; i < ddd.Count(); i++)
+        for (int i = 0; i < ddd.Length; i++)
         {
 
             IDataset<double> dat = new BarDataset<double>(new[] { ddd[ddd.Count() - i - 1] })

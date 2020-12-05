@@ -60,9 +60,13 @@
           <e p="Index.razor" t="Include" />
           <e p="Obostrzenia.razor" t="Include" />
           <e p="QaA.razor" t="Include" />
-          <e p="Statistics.razor" t="Include" />
-          <e p="TestsStatistics.razor" t="Include" />
+          <e p="Statistics" t="Include">
+            <e p="Statistics.razor" t="Include" />
+            <e p="TestsStatistics.razor" t="Include" />
+          </e>
+          <e p="Travel.razor" t="Include" />
           <e p="Twitter.razor" t="Include" />
+          <e p="WorldStatistics.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -148,6 +152,23 @@
         <e p="Program.cs" t="Include" />
         <e p="TravelingScraper.cs" t="Include" />
         <e p="TravelingScraper.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="StatsWorld" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CallAPI.cs" t="Include" />
+        <e p="GetCountryScrapper.cs" t="Include" />
+        <e p="GetStatsScrapper.cs" t="Include" />
+        <e p="ModelCountry.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="StatsWorld.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="StatsFromCountryModel.cs" t="Include" />
+        <e p="StatsWorld.csproj" t="IncludeRecursive" />
       </e>
       <e p="Szpitale" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
