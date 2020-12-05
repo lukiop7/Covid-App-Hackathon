@@ -17,33 +17,42 @@
     <Spinner />
 }
 
+
 @foreach (var topic in topics)
 {
-    <h3>@topic.name</h3>
-    @foreach (var question in topic.questions)
-    {
-        <button type="button" class="btn btn-dark" @onclick="( () => Click(question))">
-            @if (question.visible)
+    <div class="card rounded" style="margin-top:10px;margin-bottom:10px;">
+        <h4 class="card-header">@topic.name</h4>
+        <div class="card-body">
+            @foreach (var question in topic.questions)
             {
-                <span class="oi oi-arrow-thick-top"></span>
-            }
-            else
-            {
-                <span class="oi oi-arrow-thick-bottom"></span>
-            }
-            @((MarkupString)question.question)
-        </button>
-        if (@question.visible)
-        {
-            <br />
-            @((MarkupString)question.answer)
-            <br />
-            <br />
-        }
-        <br />
-        <br />
-    }
+                <button type="button" class="btn btn-dark" @onclick="( () => Click(question))">
+                    @if (question.visible)
+                    {
+                        <span class="oi oi-arrow-thick-top"></span>
+                    }
+                    else
+                    {
+                        <span class="oi oi-arrow-thick-bottom"></span>
+                    }
+                    @((MarkupString)question.question)
+                </button>
+                if (@question.visible)
+                {
+                    <div class="card rounded">
+                        <div class="card-body">
+                            <br />
+                            @((MarkupString)question.answer)
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                }
 
+                <br />
+                <br />
+            }
+        </div>
+    </div>
 
 }
 
