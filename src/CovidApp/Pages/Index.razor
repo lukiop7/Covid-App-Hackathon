@@ -2,6 +2,19 @@
 
 @page "/"
 
+<div class="alert alert-warning" role="alert">
+    <h3 class="alert-heading">Statystyki Covid w Polsce (@date.Date)</h3>
+
+    <div style="width:100%; display: inline-block; text-align: center;">
+        <p> Zakażonych: @total</p>
+        <p> Na 10 tysięcy: @cases10k</p>
+        <p> Śmierci: @deaths</p>
+    </div>
+    
+    <hr>
+    <p class="mb-0">Informacje dostarczane przez ministerstwo zdrowia.</p>
+</div>
+
 <div class="index-maindiv">
     <div class="index-charts">
 
@@ -18,6 +31,8 @@
 
     List<CovidStatsDownloader.PolandStats> polandStats = new List<CovidStatsDownloader.PolandStats>();
 
+    DateTime date;
+    string deaths, total, cases10k;
 
     Random random = new Random();
 
@@ -25,6 +40,12 @@
     private async Task FetchData()
     {
         polandStats = await CovidStatsDownloader.Program.GetPolandStatsAsync();
+
+        date = polandStats.Last().FileDate;
+
+        deaths = (polandStats.Last().FileStatsList.First().Deaths == null) ? "brak danych" : "" + polandStats.Last().FileStatsList.First().Deaths;
+        total = (polandStats.Last().FileStatsList.First().TotalCases == null) ? "brak danych" : "" + polandStats.Last().FileStatsList.First().TotalCases;
+        cases10k = (polandStats.Last().FileStatsList.First().Cases10k == null) ? "brak danych" : "" + polandStats.Last().FileStatsList.First().Cases10k;
     }
 
     protected override async void OnInitialized()
