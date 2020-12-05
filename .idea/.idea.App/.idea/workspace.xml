@@ -32,7 +32,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58b8fef1-c0a9-4e00-a23a-6fb0f00e3f26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CovidApp/Pages/WorldStatistics.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/CovidApp/Pages/WorldStatistics.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CovidApp/Pages/Zrodlo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.App/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.App/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.App/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CovidApp/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/CovidApp/Shared/NavMenu.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,6 @@
     <setting file="file://$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CB6E156D-5AE9-4C16-A4E0-CE3E33E64B5C/8/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F325A0D6-2250-427D-896D-E79D38678111/c1/890ce1ec/ConfigBase`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/CovidApp/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Twitter.razor.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/StatsWorld/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18FD0280-F595-4534-A864-9C11E9235D85/88/655f113d/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F325A0D6-2250-427D-896D-E79D38678111/27/a60c1aea/BarConfig.cs" root0="SKIP_HIGHLIGHTING" />
@@ -71,10 +73,12 @@
         <option value="$PROJECT_DIR$/src/CovidApp/wwwroot/css/twitter.css" />
         <option value="$PROJECT_DIR$/src/CovidApp/Pages/TestsStatistics.razor" />
         <option value="$PROJECT_DIR$/src/CovidApp/Pages/Index.razor" />
-        <option value="$PROJECT_DIR$/src/CovidApp/Shared/NavMenu.razor" />
         <option value="$PROJECT_DIR$/StatsWorld/Program.cs" />
         <option value="$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" />
         <option value="$PROJECT_DIR$/src/CovidApp/Pages/WorldStatistics.razor" />
+        <option value="$PROJECT_DIR$/src/CovidApp/Pages/Źródła.cs" />
+        <option value="$PROJECT_DIR$/src/CovidApp/Shared/NavMenu.razor" />
+        <option value="$PROJECT_DIR$/src/CovidApp/Pages/Zrodlo.razor" />
       </list>
     </option>
   </component>
@@ -359,7 +363,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607102987379</updated>
       <workItem from="1607103010847" duration="5193000" />
-      <workItem from="1607154550915" duration="22235000" />
+      <workItem from="1607154550915" duration="24155000" />
     </task>
     <servers />
   </component>
@@ -384,48 +388,48 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="277" key="GridCell.Tab.0.bottom" timestamp="1607182338468">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="192" key="GridCell.Tab.0.bottom" timestamp="1607184248694">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1398" height="277" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607182338468" />
+    <state width="1398" height="192" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607184200664" />
     <state width="1398" height="239" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1607182146923" />
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1607169953437" />
+    <state width="1398" height="192" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1607184248694" />
     <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1607168310429" />
     <state width="699" height="246" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1607155606586" />
     <state width="1398" height="211" key="GridCell.Tab.0.bottom/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222749" />
     <state width="1398" height="210" key="GridCell.Tab.0.bottom/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134447" />
     <state width="1398" height="331" key="GridCell.Tab.0.bottom/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220756" />
     <state width="1398" height="298" key="GridCell.Tab.0.bottom/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035716" />
-    <state width="1398" height="277" key="GridCell.Tab.0.center" timestamp="1607182338466">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="192" key="GridCell.Tab.0.center" timestamp="1607184248692">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1398" height="277" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607182338466" />
+    <state width="1398" height="192" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607184200662" />
     <state width="1398" height="239" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1607182146921" />
-    <state width="1398" height="202" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1607169953436" />
+    <state width="1398" height="192" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1607184248692" />
     <state width="1398" height="202" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1607168310426" />
     <state width="699" height="246" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1607155606585" />
     <state width="1398" height="211" key="GridCell.Tab.0.center/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222747" />
     <state width="1398" height="210" key="GridCell.Tab.0.center/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134445" />
     <state width="1398" height="331" key="GridCell.Tab.0.center/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220754" />
     <state width="1398" height="298" key="GridCell.Tab.0.center/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035715" />
-    <state width="1398" height="277" key="GridCell.Tab.0.left" timestamp="1607182338466">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="192" key="GridCell.Tab.0.left" timestamp="1607184248692">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1398" height="277" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607182338466" />
+    <state width="1398" height="192" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607184200661" />
     <state width="1398" height="239" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1607182146919" />
-    <state width="1398" height="202" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1607169953436" />
+    <state width="1398" height="192" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1607184248692" />
     <state width="1398" height="202" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1607168310425" />
     <state width="699" height="246" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1607155606584" />
     <state width="1398" height="211" key="GridCell.Tab.0.left/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222745" />
     <state width="1398" height="210" key="GridCell.Tab.0.left/1440.-157.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1607119134444" />
     <state width="1398" height="331" key="GridCell.Tab.0.left/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106220753" />
     <state width="1398" height="298" key="GridCell.Tab.0.left/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607121035714" />
-    <state width="1398" height="277" key="GridCell.Tab.0.right" timestamp="1607182338467">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="192" key="GridCell.Tab.0.right" timestamp="1607184248693">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
-    <state width="1398" height="277" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607182338467" />
+    <state width="1398" height="192" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607184200663" />
     <state width="1398" height="239" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1607182146922" />
-    <state width="1398" height="202" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1607169953437" />
+    <state width="1398" height="192" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1607184248693" />
     <state width="1398" height="202" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1607168310428" />
     <state width="699" height="246" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1607155606585" />
     <state width="1398" height="211" key="GridCell.Tab.0.right/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115222748" />
@@ -595,37 +599,5 @@
     <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-157.1920.1057/0.0.1440.836@0.0.1440.836" timestamp="1607115257381" />
     <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-157.1920.1057/0.23.1440.813@0.23.1440.813" timestamp="1607106273775" />
     <state width="720" height="450" key="XDebugger.FullValuePopup/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1607120350884" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs</url>
-          <line>12</line>
-          <properties documentPath="$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" initialLine="11">
-            <startOffsets>
-              <option value="423" />
-            </startOffsets>
-            <endOffsets>
-              <option value="512" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs</url>
-          <line>36</line>
-          <properties documentPath="$PROJECT_DIR$/StatsWorld/GetStatsScrapper.cs" initialLine="20">
-            <startOffsets>
-              <option value="1108" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1128" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
