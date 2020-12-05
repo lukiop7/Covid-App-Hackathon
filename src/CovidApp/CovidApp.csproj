@@ -12,6 +12,7 @@
     <ProjectReference Include="..\..\CovidStatsDownloader\CovidStatsDownloader.csproj" />
     <ProjectReference Include="..\..\QandA\QandA.csproj" />
     <ProjectReference Include="..\..\Szpitale\Szpitale.csproj" />
+    <ProjectReference Include="..\..\TwitterApi\TwitterApi.csproj" />
     <ProjectReference Include="..\PunktPobran\PunktPobran.csproj" />
     <ProjectReference Include="..\TestsScraper\TestsScraper.csproj" />
     <ProjectReference Include="..\TravelingScraper\TravelingScraper.csproj" />

@@ -5,12 +5,12 @@
     <button class="navbar-toggler navbar-toggler-narrow" @onclick="ToggleNavMenuNarrow">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="input-group" style="width: 20em; margin-right: 1em; max-width: 60%">
+    @*<div class="input-group" style="width: 20em; margin-right: 1em; max-width: 60%">
         <input class="form-control" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
             <button class="btn btn-light" type="button"><i class="oi oi-magnifying-glass"></i> </button>
         </div>
-    </div>
+    </div>*@
 </div>
 
 <div class=@NavOverlayCssClass @onclick="CollapseNavMenuNarrow" />
@@ -23,7 +23,9 @@
 
                 <PageLink Icon="oi oi-graph" Label="Statystyki" Page="/statistics" />
 
-                <PageLink Icon="oi oi-list-rich" Label="Diagnostyka" Page="/fetchdata" />
+                <PageLink Icon="oi oi-list-rich" Label="Diagnostyka" Page="/diagnostics" />
+
+                <PageLink Icon="oi oi-home" Label="Q & A" Page="/QaA" />
             </ul>
         </nav>
     </div>
