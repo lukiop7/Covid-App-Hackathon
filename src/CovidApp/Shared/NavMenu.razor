@@ -1,102 +1,37 @@
-﻿@using CovidApp.Shared 
-
-<div class="navbar navbar-dark bg-primary">
-    <button class="navbar-toggler navbar-toggler-wide" @onclick="ToggleNavMenuWide">
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">CovidApp</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <button class="navbar-toggler navbar-toggler-narrow" @onclick="ToggleNavMenuNarrow">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="input-group" style="width: 20em; margin-right: 1em; max-width: 60%">
-        <input class="form-control" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-            <button class="btn btn-light" type="button"><i class="oi oi-magnifying-glass"></i> </button>
-        </div>
-    </div>
 </div>
 
-<div class=@NavOverlayCssClass @onclick="CollapseNavMenuNarrow" />
-
-<div class=@NavMenuCssClass>
-    <div class="wrapper">
-        <nav id="sidebar">
-            <ul class="nav flex-column">
-                <PageLink label="Strona główna" icon="oi oi-home" page="/" />
-
-                <PageLink label="Statystyki" icon="oi oi-graph" page="/statistics" />
-
-                <PageLink label="Diagnostyka" icon="oi oi-data-transfer-download" page="/fetchdata" />
-
-                <PageLink label="Informacje" icon="oi oi-wrench">
-
-                    <PageLink Label="STH 1" Page="/page1" icon="oi oi-envelope-closed" />
-
-                    <PageLink Label="STH 2" Page="/page2" icon="oi oi-flash" />
-
-                </PageLink>
-            </ul>
-        </nav>
-    </div>
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Strona główna
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="statistics">
+                <span class="oi oi-graph" aria-hidden="true"></span> Statystyki
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Diagnostyka
+            </NavLink>
+        </li>
+    </ul>
 </div>
-
 
 @code {
-    [Parameter]
-    public bool NarrowCollapsed { get; set; }
+    private bool collapseNavMenu = true;
 
-    [Parameter]
-    public bool WideCollapsed { get; set; }
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    [Parameter]
-    public EventHandler<ChangeEventArgs> ToggleNarrow { get; set; }
-
-    [Parameter]
-    public EventHandler<ChangeEventArgs> ToggleWide { get; set; }
-
-    [Parameter]
-    public EventHandler<ChangeEventArgs> CollapseNarrow { get; set; }
-
-    string NavMenuCssClass
+    private void ToggleNavMenu()
     {
-        get
-        {
-            string baseClass = "navmenu";
-
-            if (NarrowCollapsed)
-            {
-                baseClass += " navmenu-narrow-collapsed";
-            }
-
-            if (WideCollapsed)
-            {
-                baseClass += " navmenu-wide-collapsed";
-            }
-
-            return baseClass;
-        }
+        collapseNavMenu = !collapseNavMenu;
     }
-
-    string NavOverlayCssClass
-    {
-        get
-        {
-            string baseClass = "nav-overlay";
-
-            if (NarrowCollapsed)
-            {
-                baseClass += " nav-overlay-collapsed";
-            }
-
-            return baseClass;
-        }
-    }
-
-    void CollapseNavMenuNarrow()
-    {
-        CollapseNarrow?.Invoke(this, null);
-    }
-
-    void ToggleNavMenuNarrow() => ToggleNarrow?.Invoke(this, null);
-
-    void ToggleNavMenuWide() => ToggleWide?.Invoke(this, null);
 }
