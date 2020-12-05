@@ -1,0 +1,23 @@
+﻿@page "/QaA"
+
+Hello world
+<br/>
+@message
+
+@foreach(var topic in topics)
+{
+    @topic.name 
+    <br/>
+}
+
+@code {
+    private string message = "...";
+    private List<QandA.Topic> topics = new List<QandA.Topic>();
+
+    override protected async void OnInitialized()
+    {
+        topics = await QandA.Program.Scrap();
+        message = "";
+        this.StateHasChanged();
+    }
+} 
