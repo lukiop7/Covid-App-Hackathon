@@ -58,7 +58,8 @@ namespace CovidStatsDownloader
 
             List<FileStats> records;
 
-            using (CsvReader csv = new CsvReader(sr,System.Globalization.CultureInfo.CurrentCulture))
+            var polish = new CultureInfo("en-US");
+            using (CsvReader csv = new CsvReader(sr, polish))
             {
                 csv.Configuration.Delimiter = ";";
                 records = csv.GetRecords<FileStats>().ToList();
