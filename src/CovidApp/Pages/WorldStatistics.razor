@@ -1,0 +1,83 @@
+﻿@page "/worldstatistics"
+@using ChartJs.Blazor.BarChart
+
+<Chart Config="@config"></Chart>
+
+@code {
+    private BarConfig config;
+
+    protected override async void OnInitialized()
+    {
+        config = new BarConfig(true)
+        {
+            Options = new BarOptions
+            {
+                Responsive = true,
+                Legend = new Legend
+                {
+                    Position = Position.Bottom,
+                    Display = false
+                },
+                Title = new OptionsTitle
+                {
+                    Display = true,
+                    Text = "Ilość zgonów na świecie"
+                },
+                Scales = new BarScales
+                {
+                    XAxes = new List<CartesianAxis>{ },
+                    YAxes = new List<CartesianAxis>
+                    {
+                        new ChartJs.Blazor.Common.Axes.LinearCartesianAxis
+                        {
+                            Ticks = new LinearCartesianTicks()
+                            {
+                                BeginAtZero = true,
+                                SuggestedMax = 20000,
+                            }
+                        }
+                    },
+                    
+                }
+            }
+        };
+
+        var result = await new StatsWorld.GetStatsScrapper().GetStatics();
+        List<int> sumaZakazen = new List<int>();
+       
+        int suma = 0;
+       
+
+        for (int i = 0; i < result.Count; i++)
+        {
+            for (int j = 0; j < result[i].Count; j++)
+            {
+                suma += result[j][i].Deaths;
+            }
+            
+            sumaZakazen.Add(suma);
+
+        }
+
+        int[] ddd = new int[sumaZakazen.Count()];
+        for (int i = 0; i < sumaZakazen.Count(); i++)
+        {
+            ddd[i] = sumaZakazen[i];
+        }
+        var colorlist = Colors.GradientColors(ddd.Count(), 220, 100, 100);
+        for (int i = 0; i < ddd.Length; i++)
+        {
+
+            IDataset<int> dat = new BarDataset<int>(new[] { ddd[ddd.Count() - i - 1] })
+            {
+                Label = "" + result[ddd.Count() - i - 1][ddd.Count() - i - 1].Date,
+                BackgroundColor = colorlist[ddd.Count() - i - 1],
+                BorderWidth = 1,
+            };
+            config.Data.Datasets.Add(dat);
+
+        }
+
+        this.StateHasChanged();
+    }
+}
