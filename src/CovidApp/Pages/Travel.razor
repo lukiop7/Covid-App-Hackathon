@@ -1,0 +1,39 @@
+﻿@using ChartJs.Blazor.BarChart
+
+@page "/travel"
+
+<h3>Koronawirus - podróże za granicę</h3>
+
+<h4>
+    Lista państw z najwyższą liczbą przypadków COVID-19 w przeliczeniu na 100 tys. mieszkańców w ostatnich 14 dniach
+</h4>
+
+@if (information == null)
+{
+    <Spinner />
+}
+else
+{
+    foreach (var region in information.Regions)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@region.Key</h5>
+                <p class="card-text">
+
+                </p>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private readonly TravelingScraper.TravelingScraper travelingScraper = new TravelingScraper.TravelingScraper();
+
+    private TravelingScraper.TravelingInformation information = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        information = await travelingScraper.GetTravelingInformation();
+    }
+}
