@@ -260,3 +260,34 @@ app {
         display: block;
     }
 }
+
+.twitter-tweet
+{
+    min-height: 190px;
+    border-radius: 15px;
+}
+
+.twitter-tweet
+{
+    background: linear-gradient(35deg, #f2f2f2, #d5d5d5);
+    background-size: 400% 400%;
+    animation: AnimationName 18s ease infinite;
+}
+
+@keyframes AnimationName
+{
+    0%
+    {
+        background-position: 0% 20%
+    }
+
+    50%
+    {
+        background-position: 100% 81%
+    }
+
+    100%
+    {
+        background-position: 0% 20%
+    }
+}
