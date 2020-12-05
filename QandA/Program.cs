@@ -20,7 +20,7 @@ namespace QandA
         public string question, answer;
     }
 
-    class Program
+    public class Program
     {
         static private string siteUrl = @"https://www.gov.pl/web/koronawirus/pytania-i-odpowiedzi?fbclid=IwAR1UEkrx66ib1Q6zDL4FbmVwDPnt-qP7aNQOfmP5VRYAj_EJ6o5w6jAES4c";
 
