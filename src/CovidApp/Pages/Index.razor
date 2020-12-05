@@ -2,24 +2,44 @@
 @using NPOI.OpenXmlFormats.Spreadsheet
 @using System.Text.RegularExpressions
 
+
 @page "/"
+
+<div class="card rounded" style="margin-top:5px; margin-bottom:5px;">
+    <div class="card-body rounded">
+        <div style="text-align: center; width: 100%; box-sizing:border-box;">
+            <div style="display:inline-flex">
+                <img all="" src="logo1.png" style="height:150px;" /> <b style="margin-top:60px;">Poland Covid Center</b>
+            </div>
+            <div>
+                <br/>
+                <p style="text-align:center;">
+                    W dzisiejszych, trudnych czasach niezwykle ważny jest łatwy i szybki dostęp do informacji. Covid Poland Center powstało, aby zgromadzić w jednym miejscu wszystkie niezbęde dla ciebie wiadomości.
+                    W odpowiednich zakładkach dostępne są wszelakie dane statystyczne, pokazujące przebieg pandemii w Polsce i na świecie. Wszystkie z gromadzonych tutaj danych są pobierane z rządowej strony www.gov.pl,
+                    lub innych zaufanych i rzetelnych źródeł zagranicznych. W trosce o twoje zdrowie, zamieszczone zostały tutaj również informację o tym, jak prawidłowo rozpoznać objawy covid-19, oraz aktualną listę szpitali
+                    zakaźnych, czy punktów pobrań.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="alert alert-light border border-primary text-center" role="alert">
     <p class="Warining-container"><b>Statystyki Covid w Polsce</b> (@datestring)</p>
 
     @*<div style="width:100%; display: grid; text-align: center;">
-        <div style="width:33%;"><p> Zakażonych: @total</p></div>
-        <div style="width:33%"><p> Na 10 tysięcy: @cases10k</p></div>
-        <div style="width:33%;"><p> Śmierci: @deaths</p></div>
-    </div>*@
+            <div style="width:33%;"><p> Zakażonych: @total</p></div>
+            <div style="width:33%"><p> Na 10 tysięcy: @cases10k</p></div>
+            <div style="width:33%;"><p> Śmierci: @deaths</p></div>
+        </div>*@
 
     <div class="Warining-container text-center" style="text-align: center; width: 100%; box-sizing:border-box; float: center;">
-        <div class="row col-sm text-center"style="max-width:unset;">
+        <div class="row col-sm text-center" style="max-width:unset;">
             <div class="col-sm text-center">
                 <p><b> Zakażonych: @total</b></p>  @*<i class="arrow-up"></i>*@
             </div>
             <div class="col-sm text-center">
-                <p> <b>Na 10 tysięcy: @cases10k</b></p>  @*<i class="arrow-up"></i>*@  
+                <p> <b>Na 10 tysięcy: @cases10k</b></p>  @*<i class="arrow-up"></i>*@
             </div>
             <div class="col-sm text-center">
                 @*<i class="arrow-up" style="color:red"></i>*@
@@ -33,31 +53,19 @@
 </div>
 
 
-<div style="text-align: center; width: 100%; box-sizing:border-box;">
-    <div style="display:inline-flex">
-        <img all="" src="logo1.png" style="height:150px; margin-top: 50px;" /> <b style="margin-top:110px;">Poland Covid Center</b>
-    </div>
-    <div>
-        <p style="text-align:center;">
-            W dzisiejszych, trudnych czasach niezwykle ważny jest łatwy i szybki dostęp do informacji. Covid Poland Center powstało, aby zgromadzić w jednym miejscu wszystkie niezbęde dla ciebie wiadomości. 
-            W odpowiednich zakładkach dostępne są wszelakie dane statystyczne, pokazujące przebieg pandemii w Polsce i na świecie. Wszystkie z gromadzonych tutaj danych są pobierane z rządowej strony www.gov.pl,
-            lub innych zaufanych i rzetelnych źródeł zagranicznych. W trosce o twoje zdrowie, zamieszczone zostały tutaj również informację o tym, jak prawidłowo rozpoznać objawy covid-19, oraz aktualną listę szpitali 
-            zakaźnych, czy punktów pobrań. 
-        </p>
-    </div>
-</div>
-
-
-<div class="index-maindiv">
-    <div class="index-charts">
-        <Chart Config="@ZakazeniaPolska"></Chart>
+<div class="card rounded"style="margin-top:5px; margin-bottom:5px;">
+    <div class="card-body rounded">
+        <div class="index-maindiv">
+            <div class="index-charts">
+                <Chart Config="@ZakazeniaPolska"></Chart>
 
 
 
+            </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
 </div>
-<div class="clearfix"></div>
-
 
 @*<button class="btn btn-primary" @onclick="ChangeValues">Click me</button>*@
 
@@ -78,11 +86,11 @@
         polandStats = await CovidStatsDownloader.Program.GetPolandStatsAsync();
 
         date = polandStats.Last().FileDate;
-        datestring = (date.Date+"").Split(" ").First();
+        datestring = (date.Date + "").Split(" ").First();
 
         de = (polandStats.Last().FileStatsList.First().Deaths == null) ? -1 : (int)polandStats.Last().FileStatsList.First().Deaths;
-        to = (polandStats.Last().FileStatsList.First().TotalCases == null) ? -1 : (int) polandStats.Last().FileStatsList.First().TotalCases;
-        ca = (polandStats.Last().FileStatsList.First().Cases10k == null) ? -1 : (int) polandStats.Last().FileStatsList.First().Cases10k;
+        to = (polandStats.Last().FileStatsList.First().TotalCases == null) ? -1 : (int)polandStats.Last().FileStatsList.First().TotalCases;
+        ca = (polandStats.Last().FileStatsList.First().Cases10k == null) ? -1 : (int)polandStats.Last().FileStatsList.First().Cases10k;
 
         if (de > 9999)
         {
