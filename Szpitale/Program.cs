@@ -161,17 +161,17 @@ namespace Szpitale
                             var exist = tmp.hospitals.FirstOrDefault(x => x.hospitalName == scity);
                             tmp.hospitals.ElementAt(tmp.hospitals.IndexOf(exist)).hospitalAddress.Add(saddress);
                         }
-
+                       
                         //tmp.hospitalAddres.Add(saddress);
                     }
                 }
-
+                tmp.hospitals = tmp.hospitals.OrderBy(x => x.hospitalName).ToList();
                 //Console.WriteLine("1: " + tmp.name);
                 //Console.WriteLine("2: " + tmp.hospitalName.Count);
                 //Console.WriteLine("3: " + tmp.hospitalAddres.First());
                 cities.Add(tmp);
             }
-
+            
             return cities;
         }
     }
