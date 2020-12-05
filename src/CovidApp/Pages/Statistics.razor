@@ -32,7 +32,7 @@
 
         config.Data.Datasets.Add(new PieDataset<int>(firstWeek.Value.Values.ToArray())
         {
-            BackgroundColor = new[] { ColorUtil.ColorHexString(255, 99, 132) }
+            BackgroundColor = Colors.GradientColors(30, 255, 100, 200)
         });
 
         this.StateHasChanged();
