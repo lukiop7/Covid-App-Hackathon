@@ -1,0 +1,131 @@
+﻿@page "/statistics/cov-pl"
+
+@using ChartJs.Blazor.BarChart
+@using System.Linq
+
+<h3>Covid w Polsce</h3>
+
+@if (data == null)
+{
+    <Spinner />
+}
+else
+{
+<div class="row">
+    <div class="col-12">
+        <h4>
+            liczba nowych przypadków koronawirusa
+            <Chart Config="@totalCasesConfig"></Chart>
+        </h4>
+    </div>
+
+    <div class="col-12">
+        <h4>
+            liczba nowych zgonów
+            <Chart Config="@totalDeathsConfig"></Chart>
+        </h4>
+    </div>
+
+</div>
+
+}
+
+
+@code
+{
+    private List<CovidStatsDownloader.PolandStats> data = null;
+
+    private BarConfig totalCasesConfig = new BarConfig()
+    {
+        Options = new BarOptions
+        {
+            Responsive = true,
+            Legend = new Legend
+            {
+                Position = Position.Bottom,
+                Display = false
+            },
+            Scales = new BarScales
+            {
+                XAxes = new List<CartesianAxis>
+                {
+
+                },
+                YAxes = new List<CartesianAxis>
+                    {
+                        new ChartJs.Blazor.Common.Axes.LinearCartesianAxis
+                        {
+                            Ticks = new LinearCartesianTicks()
+                            {
+                               BeginAtZero = true,
+                               SuggestedMax = 20000,
+                            }
+                        }
+                    },
+            }
+        },
+    };
+
+
+    private BarConfig totalDeathsConfig = new BarConfig()
+    {
+        Options = new BarOptions
+        {
+            Responsive = true,
+            Legend = new Legend
+            {
+                Position = Position.Bottom,
+                Display = false
+            },
+            Scales = new BarScales
+            {
+                XAxes = new List<CartesianAxis>
+                {
+
+                },
+                YAxes = new List<CartesianAxis>
+                    {
+                        new ChartJs.Blazor.Common.Axes.LinearCartesianAxis
+                        {
+                            Ticks = new LinearCartesianTicks()
+                            {
+                               BeginAtZero = true,
+                               SuggestedMax = 800,
+                            }
+                        }
+                    },
+            }
+        },
+    };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        data = await CovidStatsDownloader.Program.GetPolandStatsAsync();
+        var cases = data.Select(d => new BarDataset<double>(new [] {d.FileStatsList.Where(c => c.City == "").Select(s => s.TotalCases.Value).Sum()})
+        {
+            BackgroundColor = ColorUtil.ColorHexString(66, 135, 245),
+            Label = d.FileDate.ToShortDateString(),
+        }).ToArray();
+
+        foreach(var n in cases)
+        {
+            totalCasesConfig.Data.Datasets.Add(n);
+        }
+        totalCasesConfig.Data.Labels.Add("");
+
+
+
+        var deaths = data.Select(d => new BarDataset<double>(new[] { d.FileStatsList.Where(c => c.City == "").Select(s => s.Deaths.Value).Sum() })
+        {
+            BackgroundColor = ColorUtil.ColorHexString(130, 130, 130),
+            Label = d.FileDate.ToShortDateString(),
+        }).ToArray();
+
+        foreach (var n in deaths)
+        {
+            totalDeathsConfig.Data.Datasets.Add(n);
+        }
+        totalDeathsConfig.Data.Labels.Add("");
+    }
+}
