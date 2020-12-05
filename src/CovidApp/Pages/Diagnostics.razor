@@ -1,0 +1,23 @@
+﻿@page "/diagnostics"
+
+@using CovidApp.Shared 
+
+@if (loading)
+{
+   <Spinner />
+   <button class="btn btn-primary" @onclick="Click">Click me</button>
+} 
+else
+{
+
+}
+
+@code 
+{
+    private bool loading = true;
+
+    void Click()
+    {
+        loading = false;
+    }
+}
