@@ -6,7 +6,6 @@ namespace PunktPobran
     {
         private static async Task Main(string[] args)
         {
-            await new PunktPobranScrapper().GetPunktyPobran();
         }
     }
 }

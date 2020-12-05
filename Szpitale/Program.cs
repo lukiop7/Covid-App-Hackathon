@@ -19,17 +19,29 @@ namespace Szpitale
     {
         public string name;
         //public Dictionary<string, string> hospitals;
-        public List<string> hospitalName, hospitalAddres;
-
+        public List<Hospital> hospitals;
+        public bool visible = false;
         public City()
         {
-            this.hospitalAddres = new List<string>();
-            this.hospitalName = new List<string>();
+            this.hospitals = new List<Hospital>();
             //hospitals = new Dictionary<string, string>();
         }
     }
 
-    internal class Program
+    public class Hospital
+    {
+        public string hospitalName;
+        public List<string> hospitalAddress = new List<string>();
+        public bool visible = false;
+       public Hospital(string hospitalName, string hospitalAddress)
+        {
+            this.hospitalAddress.Add(hospitalAddress); 
+            //this.hospitalAddress = hospitalAddress.Split(',').ToList();
+            this.hospitalName = hospitalName;
+        }
+    }
+
+    public class Program
     {
         private static readonly string siteUrl = @"https://www.gov.pl/web/koronawirus/lista-szpitali?fbclid=IwAR13FDoDSxj8T2zrejrzNN4hC5rbEUZ9ynG9BBla2c_qmt3d4-V3FF5ilwk";
 
@@ -131,22 +143,32 @@ namespace Szpitale
 
                 string[] s = l.InnerText.Split('\n');
                 tmp.name = s[1];
-
+                List<string> uniqueNames = new List<string>();
                 for (int i = 3; i < s.Count(); i++)
                 {
                     if (s[i].Length > 2)
                     {
                         string scity = s[i].Remove(s[i].IndexOf(","));
                         string saddress = s[i].Replace(scity + ",", "");
-                        //tmp.hospitals.Add(scity, saddress);
-                        tmp.hospitalName.Add(scity);
-                        tmp.hospitalAddres.Add(saddress);
+                        if (!uniqueNames.Contains(scity))
+                        {
+                            uniqueNames.Add(scity);
+                            //tmp.hospitals.Add(scity, saddress);
+                            tmp.hospitals.Add(new Hospital(scity, saddress));
+                        }
+                        else
+                        {
+                            var exist = tmp.hospitals.FirstOrDefault(x => x.hospitalName == scity);
+                            tmp.hospitals.ElementAt(tmp.hospitals.IndexOf(exist)).hospitalAddress.Add(saddress);
+                        }
+
+                        //tmp.hospitalAddres.Add(saddress);
                     }
                 }
 
-                Console.WriteLine("1: " + tmp.name);
-                Console.WriteLine("2: " + tmp.hospitalName.Count);
-                Console.WriteLine("3: " + tmp.hospitalAddres.First());
+                //Console.WriteLine("1: " + tmp.name);
+                //Console.WriteLine("2: " + tmp.hospitalName.Count);
+                //Console.WriteLine("3: " + tmp.hospitalAddres.First());
                 cities.Add(tmp);
             }
 

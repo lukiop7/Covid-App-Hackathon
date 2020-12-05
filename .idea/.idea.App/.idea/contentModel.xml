@@ -56,9 +56,13 @@
           <e p="Diagnostics.razor" t="Include" />
           <e p="Error.razor" t="Include" />
           <e p="FetchData.razor" t="Include" />
+          <e p="Hospitals.razor" t="Include" />
           <e p="Index.razor" t="Include" />
+          <e p="Obostrzenia.razor" t="Include" />
           <e p="QaA.razor" t="Include" />
           <e p="Statistics.razor" t="Include" />
+          <e p="TestsStatistics.razor" t="Include" />
+          <e p="Twitter.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -99,6 +103,7 @@
               <e p="README.md" t="Include" />
             </e>
             <e p="site.css" t="Include" />
+            <e p="twitter.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
         </e>
@@ -139,6 +144,7 @@
             </e>
           </e>
         </e>
+        <e p="ObostrzeniaScraper.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="TravelingScraper.cs" t="Include" />
         <e p="TravelingScraper.csproj" t="IncludeRecursive" />

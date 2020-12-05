@@ -1,0 +1,75 @@
+﻿@page "/hospitals"
+
+<h2>Znajdź pomoc w Twojej okolicy.</h2>
+<br />
+    Wybierz swoje województwo aby zobaczyć listę szpitali oraz punktów pobrań wymazów blisko Ciebie.
+<br />
+
+@code {
+    void ClickCity(Szpitale.City q)
+    {
+        q.visible = !q.visible;
+    }
+    void ClickHospital(Szpitale.Hospital q)
+    {
+        q.visible = !q.visible;
+    }
+}
+
+
+@if (cities == null)
+{
+    <p><em>Poszukujemy szpitali gdzie są jakiekolwiek miejsca :)</em></p>
+}
+else
+{
+    <div class="container" id="city" style="margin-top: 20px;">
+        @foreach (var city in cities)
+        {
+            <div class="container" id="hospitals" style="margin-top: 10px; margin-bottom: 10px;">
+                <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="(() => ClickCity(city))">  @((MarkupString)city.name) </button>
+                @foreach (var hospital in city.hospitals)
+                {
+                    <div class="container" id="details" style="margin-top: 5px; margin-bottom:5px;">
+                        @if (city.visible)
+                        {
+
+                            <button type="button" class="btn btn-outline-info btn-lg btn-block" @onclick="(() => ClickHospital(hospital))">  @((MarkupString)hospital.hospitalName) </button>
+                            @if (hospital.visible)
+                            {
+
+                                @foreach (var hospitalad in hospital.hospitalAddress)
+                                {
+                                    <div class="card card-body text-center" style="margin-top: 5px; margin-bottom:5px;">
+                                        @{ var address = hospitalad.Split(',').ToList();
+                                            @foreach (var line in address)
+                                            {
+                                                @((MarkupString)line)
+                                                <br />
+                                            }
+                                        }
+                                    </div>
+                                }
+
+                            }
+                        }
+                    </div>
+
+                }
+            </div>
+        }
+    </div>
+}
+
+
+
+@code {
+    private List<Szpitale.City> cities;
+
+    override protected async void OnInitialized()
+    {
+        cities = await Szpitale.Program.ScrapMethod2();
+        this.StateHasChanged();
+    }
+}
+
