@@ -136,15 +136,50 @@ app {
     top: 0.5rem;
 }
 
+
+
+
+
+
+
+
 .index-charts{
     flex: auto;
 }
+    .index-charts-top .left {
+        /*background: lightyellow;*/
+        width: 28%;
+        margin-right: 2%;
+        float: left;
+    }
+    .Tests {
+        height:inherit;
+        justify-content: center;
+    }
+
+.pcl2 {
+    display: none;
+    text-align: justify;
+}
+.pcl1 {
+    display: flex;
+    text-align: justify;
+}
+
+    .index-charts-top .right {
+        /*background: lightgreen;*/
+        width: 70%;
+        /*margin-right: 2%;*/
+        float: left;
+    }
+
     .index-charts .left {
         /*background: lightyellow;*/
         width: 49%;
         margin-right: 2%;
         float: left;
     }
+
     .index-charts .right {
         /*background: lightgreen;*/
         width: 49%;
@@ -164,6 +199,21 @@ app {
     .main .top-row a, .main .top-row .btn-link {
         margin-left: 0;
     }
+
+
+    .index-charts-top .left {
+        /*background: lightyellow;*/
+        width: 28%;
+        margin-right: 2%;
+        float: left;
+    }
+
+        .pcl1 {
+            display: none;
+        }
+        .pcl2 {
+            display: flex;
+        }
 
     .index-charts .left {
         background: lightyellow;
