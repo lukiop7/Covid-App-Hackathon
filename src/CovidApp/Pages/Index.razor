@@ -4,7 +4,7 @@
 
 @page "/"
 
-<div class="alert alert-warning" role="alert">
+<div class="alert alert-light border border-primary text-center" role="alert">
     <p class="Warining-container"><b>Statystyki Covid w Polsce</b> (@datestring)</p>
 
     @*<div style="width:100%; display: grid; text-align: center;">
@@ -13,17 +13,17 @@
         <div style="width:33%;"><p> Śmierci: @deaths</p></div>
     </div>*@
 
-    <div class="Warining-container" style="text-align: center; width: 100%; box-sizing:border-box; float: left;">
-        <div class="row">
-            <div class="col-sm">
-                <p><b> Zakażonych: <p>@total</p></b>  @*<i class="arrow-up"></i>*@ </p>
+    <div class="Warining-container text-center" style="text-align: center; width: 100%; box-sizing:border-box; float: center;">
+        <div class="row col-sm text-center"style="max-width:unset;">
+            <div class="col-sm text-center">
+                <p><b> Zakażonych: @total</b></p>  @*<i class="arrow-up"></i>*@
             </div>
-            <div class="col-sm">
-                <p> <b>Na 10 tysięcy: <p>@cases10k</p></b>  @*<i class="arrow-up"></i>*@  </p>
+            <div class="col-sm text-center">
+                <p> <b>Na 10 tysięcy: @cases10k</b></p>  @*<i class="arrow-up"></i>*@  
             </div>
-            <div class="col-sm">
+            <div class="col-sm text-center">
                 @*<i class="arrow-up" style="color:red"></i>*@
-                <p> <b> Śmierci: <p>@deaths </p></b> </p>
+                <p> <b> Śmierci: @deaths </b></p>
             </div>
         </div>
     </div>
