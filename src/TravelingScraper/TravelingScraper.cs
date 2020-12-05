@@ -59,6 +59,8 @@ namespace TravelingScraper
     {
         public string Name { get; set; }
 
+        public bool Visible { get; set; } = false;
+
         public Dictionary<string, CountryInformation> Countries { get; set; } = new Dictionary<string, CountryInformation>();
     }
 
