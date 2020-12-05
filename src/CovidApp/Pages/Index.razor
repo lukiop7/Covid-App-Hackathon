@@ -1,11 +1,6 @@
 ﻿@using ChartJs.Blazor.BarChart
 
 @page "/"
-@*<Tweet Url="https://twitter.com/elonmusk/status/1324595039742222337?ref_src=twsrc%5Etf" />
-
-    <SurveyPrompt Title="How is Blazor working for you?" />
-
-    <Chart Config="@config"></Chart>*@
 
 <div class="index-maindiv">
     <div class="index-charts">
@@ -17,202 +12,30 @@
 <div class="clearfix"></div>
 
 
-<button class="btn btn-primary" @onclick="ChangeValues">Click me</button>
+@*<button class="btn btn-primary" @onclick="ChangeValues">Click me</button>*@
 
 @code {
+
     List<CovidStatsDownloader.PolandStats> polandStats = new List<CovidStatsDownloader.PolandStats>();
-    List<TestsScraper.Tests> tests = new List<TestsScraper.Tests>();
 
 
-    private PieConfig config, TestsPerformedToday, TestsPerformedAll, chart3;
-    private BarConfig TestyPolska;
     Random random = new Random();
 
 
-
-    PieDataset<double> dataset = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
-    {
-        BackgroundColor = Colors.RandomColors(200, 60)
-    };
-    PieDataset<double> dataset2 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
-    {
-        BackgroundColor = Colors.RandomColors(200, 60)
-    };
-    PieDataset<double> dataset3 = new PieDataset<double>(new[] { 6.0, 5.0, 3.0, 7.0 })
-    {
-        BackgroundColor = Colors.RandomColors(200, 60)
-    };
-
     private async Task FetchData()
     {
-        //polandStats = await CovidStatsDownloader.Program.GetPolandStatsAsync();
-        tests = await new TestsScraper.TestsScrapper().GetPerformedTestsWeekly2();
+        polandStats = await CovidStatsDownloader.Program.GetPolandStatsAsync();
     }
 
     protected override async void OnInitialized()
     {
 
-        TestyPolska = new BarConfig
-        {
-            Options = new BarOptions
-            {
-                Responsive = true,
-                Legend = new Legend
-                {
-                    Position = Position.Bottom,
-                    Display = false
-                },
-                Title = new OptionsTitle
-                {
-                    Display = true,
-                    Text = "Testy przeprowadzane w poslce"
-                }
-            }
-        };
-
-
-        config = new PieConfig(true)
-        {
-            Options = new PieOptions
-            {
-                Responsive = true,
-                Title = new OptionsTitle
-                {
-                    Display = true,
-                    Text = "ChartJs.Blazor Pie Chart"
-                },
-            },
-        };
-        TestsPerformedToday = new PieConfig(true)
-        {
-            Options = new PieOptions
-            {
-                Responsive = true,
-                Title = new OptionsTitle
-                {
-                    Display = true,
-                    Text = "Ilość przeprowadzonych dzisiaj testów"
-                },
-            },
-        };
-        TestsPerformedAll = new PieConfig(true)
-        {
-            Options = new PieOptions
-            {
-                Responsive = true,
-                Title = new OptionsTitle
-                {
-                    Display = true,
-                    Text = "Ilość wszystkich przeprowadzonych testów"
-                },
-            },
-        };
-        chart3 = new PieConfig(true)
-        {
-            Options = new PieOptions
-            {
-                Responsive = true,
-                Title = new OptionsTitle
-                {
-                    Display = true,
-                    Text = "lol"
-                },
-            },
-        };
-
-
         await FetchData();
 
 
-        tests = tests.OrderByDescending(o => o.date).ToList();
-        SetTestsPerformed();
-
 
         await Task.Delay(100);
-        config.Data.Datasets.Add(dataset);
-        chart3.Data.Datasets.Add(dataset);
         this.StateHasChanged();
     }
 
-    void ChangeValues()
-    {
-        dataset.Add(random.NextDouble() * 10);
-    }
-
-
-    private void SetTestsPerformed()
-    {
-
-
-        int[] tmp = tests[0].city.Values.ToArray();
-        var c = Colors.RandomColors(tmp.Count(), 200);
-
-        var dd = tmp.Select(x => (double)x).ToArray();
-        PieDataset<double> TestsPerformedAllData = new PieDataset<double>(dd)
-        {
-            BackgroundColor = c
-        };
-
-
-
-        int[] tmp2 = tests[1].city.Values.ToArray();
-        int[] tmp3 = tmp;
-        for (int i = 0; i < tmp.Count(); i++)
-        {
-            tmp3[i] = tmp3[i] - tmp2[i];
-        }
-        var d = tmp.Select(x => (double)x).ToArray();
-        PieDataset<double> TestsPerformedTodayData = new PieDataset<double>(d)
-        {
-            BackgroundColor = c
-        };
-        foreach (string city in tests.First().city.Keys)
-        {
-            TestsPerformedToday.Data.Labels.Add(city);
-            TestsPerformedAll.Data.Labels.Add(city);
-        }
-        TestsPerformedToday.Data.Datasets.Add(TestsPerformedTodayData);
-        TestsPerformedAll.Data.Datasets.Add(TestsPerformedAllData);
-
-        //for (int i = 0; i < tests.Count() - 1; i++)
-        //{
-        //    BarDataset<int> TestyPolskaData = new BarDataset<int>(new[] { 10 });
-        //    TestyPolska.Data.Datasets.Add(TestyPolskaData);
-        //}
-
-        var colorlist = Colors.GradientColors(tests.Count() - 1, 220, 100, 100);
-
-        int[] ddd = new int[tmp.Count()];
-        for (int i = 0; i < tests.Count() - 1; i++)
-        {
-
-            //TestyPolska.Data.Datasets.Add(dat);
-
-            int sum1 = 0, sum2 = 0;
-
-            foreach (var v in tests[i].city.Values) sum1 += v;
-            foreach (var v in tests[i+1].city.Values) sum2 += v;
-
-            ddd[i] = sum1 - sum2;
-
-            //BarDataset<int> TestyPolskaData = new BarDataset<int>(new[] { (sum1 - sum2) });
-            //TestyPolska.Data.Datasets.Add(TestyPolskaData);
-        }
-
-        for (int i = 0; i < ddd.Count(); i++)
-        {
-
-            IDataset<int> dat = new BarDataset<int>(new[] { ddd[ddd.Count() - i - 1] })
-            {
-                Label = "" + tests[ddd.Count() - i - 1].date,
-                BackgroundColor = colorlist[ddd.Count() - i - 1],
-                BorderWidth = 1,
-                //XAxisId = "" + tests[i].date
-            };
-            TestyPolska.Data.Datasets.Add(dat);
-            //BarDataset<int> TestyPolskaData = new BarDataset<int>(new[] { ddd[ddd.Count() - i - 1] });
-
-        }
-
-    }
 }
